@@ -90,6 +90,7 @@ ul {
 
 .description_wrapper {
     display: flex;
+    gap: 24px;
 }
 
 .description_form {
