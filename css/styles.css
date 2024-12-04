@@ -114,14 +114,24 @@ ul {
 
 .red {background-color: #f37d7d;}
 
-.purple {background-color: #e77df3;}
+.purple {background-color: #e77df3; }
 
-/*.colors-list > li {*/
-/*    border-radius: 50%;*/
-/*    fill: #fff;*/
-/*    width: 30px;*/
-/*    height: 30px;*/
-/*    padding: 7px;*/
-/*    cursor: pointer;*/
-/*    transition: .2s;*/
-/*}*/
+.add_note_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+
+    border-radius: 10px;
+    border: none;
+    padding: 6px 24px;
+    width: 232px;
+    height: 36px;
+    background-color: #457cdc;
+}
