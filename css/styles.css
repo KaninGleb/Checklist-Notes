@@ -28,7 +28,6 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0;
 }
 
 .header_wrapper {
@@ -51,4 +50,27 @@ ul {
     line-height: 1.5;
     text-align: right;
     color: #000;
+}
+
+.notes_create_wrapper {
+    border-radius: 4px;
+    padding: 24px;
+    width: 1152px;
+    height: 228px;
+}
+
+.note-form {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 2;
+    color: #919191;
+}
+
+.note_input {
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 6px 12px;
+    width: 344px;
+    height: 36px;
 }
