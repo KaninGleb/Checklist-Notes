@@ -75,7 +75,9 @@ ul {
 }
 
 .name_wrapper {
-    margin: 12px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
 }
 
 .note_input {
@@ -93,7 +95,6 @@ ul {
 .description_form {
     display: flex;
     flex-direction: column;
-    border: 1px solid deeppink;
 }
 
 .note_description {
