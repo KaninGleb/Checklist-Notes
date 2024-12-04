@@ -38,9 +38,34 @@
     <div class="container">
         <div class="notes_create_wrapper">
             <form class="note-form" name="notes">
-                <!-- Ваш код -->
-                <label class="note_name">Название заметки</label>
-                <input type="text" class="note_input" placeholder="Напишите название новой заметки..."></input>
+                <div class="name_wrapper">
+                    <label class="note_name">Название заметки</label>
+                    <input type="text" class="note_input" placeholder="Напишите название новой заметки..."></input>
+                </div>
+
+                <div class="description_wrapper">
+                    <label class="note_name">Описание новой заметки</label>
+                    <input type="text" class="note_description" placeholder="Напишите название новой заметки..."></input>
+
+                    <span class="change_color">Выберите цвет заметки</span>
+                    <ul class="colors-list">
+                        <li class="selected">
+                            <div class="circle yellow"></div>
+                        </li>
+                        <li>
+                            <div class="circle green"></div>
+                        </li>
+                        <li>
+                            <div class="circle blue"></div>
+                        </li>
+                        <li>
+                            <div class="circle red"></div>
+                        </li>
+                        <li>
+                            <div class="circle purple"></div>
+                        </li>
+                    </ul>
+                </div>
             </form>
         </div>
     </div>
