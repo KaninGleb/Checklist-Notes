@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,9 +16,22 @@
 
 <body>
 <div id="app"></div>
-
 <header class="header">
-    <!-- Ваш код -->
+    <div class="container">
+        <div class="header_wrapper">
+            <a class="logo">
+                <img class="header_img" src="./images/icons/header/Notes.svg" alt="Notes Icon">
+            </a>
+            <ul class="menu">
+                <li class="menu-item">
+                    <img class="header_img" src="./images/icons/header/notes-mini.svg" alt="Notes mini">
+                </li>
+                <li class="menu-item">
+                    <span class="note_counter">Всего заметок: 0</span>
+                </li>
+            </ul>
+        </div>
+    </div>
 </header>
 
 <main>
@@ -40,7 +52,6 @@
 </main>
 
 <script src="js/index.js"></script>
-
 </body>
 
 </html>
