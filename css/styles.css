@@ -37,14 +37,23 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px green solid;
     background-color: #ffffff;
-    /*padding: 18px 0;*/                                        /* FIX */
+    padding: 18px 0;
+
+    box-shadow: 0 0 0 1px green;                              /* FIX */
+}
+
+.logo img {
+    height: 24px;
+    object-fit: contain; /* Сохраняет пропорции изображения */
 }
 
 .menu {
     display: flex;
     gap: 12px;
+}
+.menu-item img{height: 24px;
+    object-fit: contain;
 }
 
 .note_counter {
