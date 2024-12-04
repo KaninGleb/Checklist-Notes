@@ -23,6 +23,8 @@ ul {
     border: 1px solid red;
 }
 
+/* =============== Header =============== */
+
 .header {
     height: 60px;
     display: flex;
@@ -45,18 +47,23 @@ ul {
 
 .note_counter {
     font-family: "Montserrat", sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
     text-align: right;
     color: #000;
 }
 
+/* =============== Main =============== */
+
 .notes_create_wrapper {
     border-radius: 4px;
     padding: 24px;
+    margin: 24px 0;
     width: 1152px;
     height: 228px;
+    box-shadow: 0 8px 12px 0 rgba(11, 12, 13, 0.08), 0 16px 24px 0 rgba(11, 12, 13, 0.04), 0 1px 2px 0 rgba(11, 12, 13, 0.08);
+    background: #fff;
 }
 
 .note-form {
@@ -67,6 +74,10 @@ ul {
     color: #919191;
 }
 
+.name_wrapper {
+
+}
+
 .note_input {
     border: 1px solid #e8e8e8;
     border-radius: 10px;
@@ -74,3 +85,43 @@ ul {
     width: 344px;
     height: 36px;
 }
+
+.note_description {
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 6px 12px;
+    width: 848px;
+    height: 84px;
+}
+
+.colors-list {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.circle {
+    border-radius: 100%;
+    width: 24px;
+    height: 24px;
+}
+
+.yellow {background-color: #f3db7d;}
+
+.green {background-color: #c2f37d;}
+
+.blue {background-color: #7de1f3;}
+
+.red {background-color: #f37d7d;}
+
+.purple {background-color: #e77df3;}
+
+/*.colors-list > li {*/
+/*    border-radius: 50%;*/
+/*    fill: #fff;*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*    padding: 7px;*/
+/*    cursor: pointer;*/
+/*    transition: .2s;*/
+/*}*/
