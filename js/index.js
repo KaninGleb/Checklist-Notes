@@ -46,15 +46,15 @@ const view = {
         this.renderNotes(model.notes)
 
         const form = document.querySelector('.note-form');
+        const title = document.querySelector('.note_input');
+        const content = document.querySelector('.note_description');
 
         form.addEventListener('submit', (event) => {
             event.preventDefault();
             // получаем данные из полей формы
-            const title = document.querySelector('.note_input').value;
-            const content = document.querySelector('.note_description').value;
-            const color = document.querySelector('input[name="color"]:checked').value;
+            const color = document.querySelector('input[name="color"]:checked');
             // передаем данные в контроллер
-            controller.addNote(title, content, color);
+            controller.addNote(title.value, content.value, color);
 
             title.value = '';
             content.value = '';
