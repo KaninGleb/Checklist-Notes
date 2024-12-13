@@ -13,19 +13,24 @@ const model = {
     notes: MOCK_NOTES,
     addNote(title, content, color) {
         const note = {
-            title, content, color
+            id: new Date().getTime(),
+            title,
+            content,
+            color,
+            isFavorite: false
         }
 
         // 2. добавим заметку в начало списка
         this.addNote.unshift(note)
-
         // 3. обновим view
         view.renderNotes(this.notes)
     },
 
     updateNotesView() {
         // 1. рендерит список заметок (вызывает метод view.renderNotes)
+        view.renderNotes(this.notes);
         // 2. рендерит количество заметок (вызывает метод view.renderNotesCount)
+        // view.renderNotesCount(this.notes.length);
     }
 }
 
