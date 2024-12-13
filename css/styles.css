@@ -53,8 +53,11 @@ ul {
     align-items: center;
     gap: 12px;
 }
-.menu-item img{height: 24px;
-    object-fit: contain;
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    margin: 18px 0;
 }
 
 .note_counter {
@@ -226,5 +229,5 @@ legend {
 }
 
 .checkbox:checked + .custom-checkbox {
-    background-image: url('/images/icons/main/checkbox-active.svg'); /* Путь к изображению для состояния "checked" */
+    background-image: url('/images/icons/main/checkbox-active.svg');
 }
