@@ -38,18 +38,19 @@ ul {
     justify-content: space-between;
     align-items: center;
     background-color: #ffffff;
-    padding: 18px 0;
+    height: 100%;
 
-    box-shadow: 0 0 0 1px green;                              /* FIX */
 }
 
 .logo img {
     height: 24px;
-    object-fit: contain; /* Сохраняет пропорции изображения */
+    object-fit: contain;
+    margin: 18px 0;
 }
 
 .menu {
     display: flex;
+    align-items: center;
     gap: 12px;
 }
 .menu-item img{height: 24px;
