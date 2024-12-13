@@ -54,7 +54,20 @@ const view = {
         })
 
     },
-    renderNotes(notes) {}
+    renderNotes(notes) {
+        const list = document.querySelector('.note-list');
+        let notesHTML = '';
+
+        notes.forEach(note => {
+            notesHTML += `
+            <li id="${note.id}" class="${note.isFavorite ? 'favorite' : ''}">
+                <p class="note-title">${note.title}</p>
+                <button class="favorite-button" type="button">❤️</button>
+                <button class="delete-button" type="button">X</button>
+            </li>`
+        })
+        list.innerHTML = notesHTML;
+    }
 }
 
 const controller = {
