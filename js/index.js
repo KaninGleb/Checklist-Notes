@@ -19,11 +19,10 @@ const model = {
             color,
             isFavorite: false
         }
-
         // 2. добавим заметку в начало списка
-        this.addNote.unshift(note)
+        this.notes.unshift(note)
         // 3. обновим view
-        view.renderNotes(this.notes)
+        this.updateNotesView();
     },
 
     updateNotesView() {
