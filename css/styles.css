@@ -191,3 +191,21 @@ legend {
     height: 36px;
     background-color: #457cdc;
 }
+
+/* ============== Filter ============== */
+
+.filter-label {
+    cursor: pointer;
+}
+
+.filter-box {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 2;
+    color: #000000;
+
+    display: flex;
+    justify-content: end;
+    gap: 8px;
+}
