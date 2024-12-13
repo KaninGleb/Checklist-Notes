@@ -61,8 +61,9 @@ const view = {
             content.value = '';
         })
     },
+
     renderNotes(notes) {
-        const list = document.querySelector('.note-list');
+        const list = document.querySelector('.notes-list');
         let notesHTML = '';
 
         notes.forEach(note => {
