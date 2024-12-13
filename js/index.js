@@ -11,6 +11,19 @@ const MOCK_NOTES = [
 
 const model = {
     notes: MOCK_NOTES,
+    addNote(title, content, color) {
+        const note = {
+            // 1. создадим новую заметку
+        }
+
+        // 2. добавим заметку в начало списка
+        // 3. обновим view
+    },
+
+    updateNotesView() {
+        // 1. рендерит список заметок (вызывает метод view.renderNotes)
+        // 2. рендерит количество заметок (вызывает метод view.renderNotesCount)
+    }
 }
 
 const colors = {
@@ -22,18 +35,29 @@ const colors = {
 }
 
 const view = {
-    renderNotes(notes) {
-        // your code here
-        // находим контейнер для заметок и рендерим заметки в него (если заметок нет, отображаем соответствующий текст)
-        // также здесь можно будет повесить обработчики кликов на кнопки удаления и избранного
-    }
-}
-
-const view = {
     init() {
         this.renderNotes(model.notes)
+
+        const form = document.querySelector('.note-form');
+        form.addEventListener('submit', (event) => {
+            // получаем данные из полей формы
+            // передаем данные в контроллер
+            controller.addNote(title, content, color);
+        })
+
     },
-    renderNotes(notes) { ...
+    renderNotes(notes) {}
+}
+
+const controller = {
+    addNote(title, content, color) {
+        // здесь можно добавить валидацию полей
+        // your code
+
+        // вызываем метод модели
+        model.addNote(title, content, color);
+
+        // view.showMessage('Заметка добавлена')
     }
 }
 
