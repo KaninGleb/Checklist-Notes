@@ -49,30 +49,33 @@
                         <input type="text" class="note_description" placeholder="Напишите название новой заметки..."></input>
                     </div>
 
-                    <div class="change_color_wrapper">
-                        <span>Выберите цвет заметки</span>
-                        <ul class="colors-list">
+                    <fieldset class="fieldset">
+                        <legend class="label">Выберите цвет заметки</legend>
+                        <ul class="radio-list">
                             <li>
-                                <div class="circle yellow"></div>
+                                <input checked class="radio" type="radio" name="color" value="yellow" aria-label="yellow"/>
                             </li>
                             <li>
-                                <div class="circle green"></div>
+                                <input class="radio" type="radio" name="color" value="red" aria-label="red"/>
                             </li>
                             <li>
-                                <div class="circle blue"></div>
+                                <input class="radio" type="radio" name="color" value="green" aria-label="green"/>
                             </li>
                             <li>
-                                <div class="circle red"></div>
+                                <input class="radio" type="radio" name="color" value="blue" aria-label="blue"/>
                             </li>
                             <li>
-                                <div class="circle purple"></div>
+                                <input class="radio" type="radio" name="color" value="purple" aria-label="purple"/>
                             </li>
                         </ul>
                         <button type="submit" class="add_note_button">
                             <img src="./images/icons/note-add/plus-white.svg" alt="Add Note">
                             Добавить заметку
                         </button>
-                    </div>
+                    </fieldset>
+
+                    <!-- your code -->
+
                 </div>
             </form>
         </div>
