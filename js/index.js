@@ -11,6 +11,8 @@ const MOCK_NOTES = [
 
 const model = {
     notes: MOCK_NOTES,
+    isShowOnlyFavorite: false,
+
     addNote(title, content, color) {
         const note = {
             id: new Date().getTime(),
@@ -25,12 +27,25 @@ const model = {
         this.updateNotesView();
     },
 
+    // toggleShowOnlyFavorite(isShowOnlyFavorite) {
+    //     this.isShowOnlyFavorite = !this.isShowOnlyFavorite;
+    //     this.updateNotesView();
+    // },
+    //
     updateNotesView() {
         // 1. рендерит список заметок (вызывает метод view.renderNotes)
         view.renderNotes(this.notes);
         // 2. рендерит количество заметок (вызывает метод view.renderNotesCount)
         // view.renderNotesCount(this.notes.length);
-    }
+    },
+    //
+    //
+    // updateNotesView() {
+    //     const notesToRender = this.notes.filter(el => el.isFavorite);
+    //     this.notes = notesToRender;
+    //
+    //     view.renderNotes(this.notes);
+    // }
 }
 
 const colors = {
@@ -87,11 +102,7 @@ const view = {
 const controller = {
     addNote(title, content, color) {
         // здесь можно добавить валидацию полей
-        // your code
-
-        // вызываем метод модели
-        model.addNote(title, content, color);
-
+                model.addNote(title, content, color);
         // view.showMessage('Заметка добавлена')
     }
 }
