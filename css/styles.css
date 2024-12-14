@@ -24,6 +24,10 @@ ul {
     border: 1px solid red;
 }
 
+.no_select {
+    user-select: none;
+}
+
 /* =============== Header =============== */
 
 .header {
@@ -147,6 +151,8 @@ legend {
     height: 24px;
     border-radius: 50%;
     background-color: green;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
 .radio[value="red"] {
@@ -171,8 +177,7 @@ legend {
 
 .radio:checked {
     border-color: white;
-    box-shadow: 0 0 0 3px white,
-    0 0 0 4.5px #007BFF;
+    box-shadow: 0 0 0 3px white, 0 0 0 4.5px #007BFF;
 }
 
 .add_note_button {
@@ -193,6 +198,13 @@ legend {
     width: 232px;
     height: 36px;
     background-color: #457cdc;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.add_note_button:hover {
+    background-color: #3b6db4;
+    transform: scale(1.05);
 }
 
 /* ============== Filter ============== */

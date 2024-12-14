@@ -27,7 +27,7 @@
                     <img class="header_img" src="./images/icons/header/notes-mini.svg" alt="Notes mini">
                 </li>
                 <li class="menu-item">
-                    <span class="note_counter">Всего заметок: 0</span>
+                    <span class="note_counter">Всего заметок: <b>0</b></span>
                 </li>
             </ul>
         </div>
@@ -39,13 +39,13 @@
         <div class="notes_create_wrapper">
             <form class="note-form" name="notes">
                 <div class="name_wrapper">
-                    <label>Название заметки</label>
+                    <label class="no_select">Название заметки</label>
                     <input type="text" class="note_input" placeholder="Напишите название новой заметки..."></input>
                 </div>
 
                 <div class="description_wrapper">
                     <div class="description_form">
-                        <label>Описание новой заметки</label>
+                        <label class="no_select">Описание новой заметки</label>
                         <input type="text" class="note_description" placeholder="Напишите название новой заметки..."></input>
                     </div>
 
@@ -68,7 +68,7 @@
                                 <input class="radio" type="radio" name="color" value="purple" aria-label="purple"/>
                             </li>
                         </ul>
-                        <button type="submit" class="add_note_button">
+                        <button class="add_note_button" type="submit">
                             <img src="./images/icons/main/plus-white.svg" alt="Add Note">
                             Добавить заметку
                         </button>
@@ -86,7 +86,7 @@
             <label class="filter-label">
                 <input class="checkbox" type="checkbox" name="favorite" />
                 <span class="filter-checkbox custom-checkbox"></span>
-                <span>Показать только избранные заметки</span>
+                <span class="no_select">Показать только избранные заметки</span>
             </label>
         </div>
     </div>
