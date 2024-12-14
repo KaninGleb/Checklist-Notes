@@ -71,6 +71,7 @@ const view = {
                 <p class="note-title">${note.title}</p>
                 <button class="favorite-button" type="button">❤️</button>
                 <button class="delete-button" type="button">X</button>
+                <p class="note-content">${note.content}</p>
             </li>`
         })
         list.innerHTML = notesHTML;
