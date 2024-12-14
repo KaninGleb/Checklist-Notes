@@ -86,7 +86,7 @@ const view = {
                 <div class="note-wrapper">
                     <div class="note-title-actions-wrapper">
                         <p class="note-title">${note.title}</p>
-                        <div class="button_wrapper">
+                        <div class="button-wrapper">
                             <input class="favorite-button" type="checkbox"></input>
                             <button class="delete-button">-X-</input>
                         </div>
