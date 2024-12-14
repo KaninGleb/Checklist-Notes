@@ -38,7 +38,6 @@ ul {
     align-items: center;
     background-color: #ffffff;
     height: 100%;
-
 }
 
 .logo img {
@@ -223,10 +222,36 @@ legend {
 .custom-checkbox {
     width: 16px;
     height: 16px;
-    background-image: url('/images/icons/main/checkbox-inactive.svg');
     background-size: cover;
+}
+
+.filter-checkbox {
+    background-image: url('/images/icons/main/checkbox-inactive.svg');
 }
 
 .checkbox:checked + .custom-checkbox {
     background-image: url('/images/icons/main/checkbox-active.svg');
+}
+
+/* ============== Notes list ============== */
+
+.notes-list {}
+
+.note-title-actions-wrapper {}
+
+.note-title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #292515;
+}
+
+.favorite-button, .delete-button {
+    float: right;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 8px;
 }
