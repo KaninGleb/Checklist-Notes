@@ -235,9 +235,24 @@ legend {
 
 /* ============== Notes list ============== */
 
-.notes-list {}
+.notes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
 
-.note-title-actions-wrapper {}
+.note-wrapper {
+    border-radius: 10px;
+    padding: 12px 0 0 0;
+    width: 368px;
+    height: 216px;
+    box-shadow: 0 4px 8px 0 rgba(11, 12, 13, 0.08), 0 8px 16px 0 rgba(11, 12, 13, 0.04), 0 1px 2px 0 rgba(11, 12, 13, 0.08);
+}
+
+.note-title-actions-wrapper {
+    border-radius: 10px 10px 0 0;
+    background: #f3db7d;
+}
 
 .note-title {
     font-family: "Montserrat", sans-serif;
@@ -254,4 +269,11 @@ legend {
     cursor: pointer;
     font-size: 16px;
     margin-left: 8px;
+}
+
+.note-content {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.71429;
+    color: #000;
 }
