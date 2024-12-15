@@ -1,3 +1,11 @@
+:root {
+    --color-yellow: #F3DB7D;
+    --color-red: #F37D7D;
+    --color-green: #C2F37D;
+    --color-blue: #7DE1F3;
+    --color-purple: #E77DF3;
+}
+
 *,
 *::before,
 *::after {
@@ -155,24 +163,24 @@ legend {
     transition: 0.3s ease;
 }
 
+.radio[value="yellow"] {
+    background-color: var(--color-yellow);
+}
+
 .radio[value="red"] {
-    background-color: #F37D7D;
+    background-color: var(--color-red);
 }
 
 .radio[value="green"] {
-    background-color: #C2F37D;
+    background-color: var(--color-green);
 }
 
 .radio[value="blue"] {
-    background-color: #7DE1F3;
-}
-
-.radio[value="yellow"] {
-    background-color: #F3DB7D;
+    background-color: var(--color-blue);
 }
 
 .radio[value="purple"] {
-    background-color: #E77DF3;
+    background-color: var(--color-purple);
 }
 
 .radio:checked {
