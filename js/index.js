@@ -113,6 +113,10 @@ const controller = {
         // здесь можно добавить валидацию полей
             model.addNote(title, content, color);
         // view.showMessage('Заметка добавлена')
+    },
+
+    deleteNote(id) {
+        model.deleteNote(id);
     }
 }
 
