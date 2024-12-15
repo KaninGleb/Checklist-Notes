@@ -48,12 +48,12 @@ const model = {
     // }
 }
 
-const colors = {
-    GREEN: 'green',
-    BLUE: 'blue',
-    RED: 'red',
-    YELLOW: 'yellow',
-    PURPLE: 'purple',
+const colorMap = {
+    yellow: 'var(--color-yellow)',
+    red: 'var(--color-red)',
+    green: 'var(--color-green)',
+    blue: 'var(--color-blue)',
+    purple: 'var(--color-purple)',
 }
 
 const view = {
@@ -69,7 +69,7 @@ const view = {
             // получаем данные из полей формы
             const color = document.querySelector('input[name="color"]:checked');
             // передаем данные в контроллер
-            controller.addNote(title.value, content.value, color);
+            controller.addNote(title.value, content.value, color.value);
 
             title.value = '';
             content.value = '';
@@ -82,18 +82,18 @@ const view = {
 
         notes.forEach(note => {
             notesHTML +=
-            `<li id="${note.id}" class="${note.isFavorite ? 'favorite' : ''}">
-                <div class="note-wrapper">
-                    <div class="note-title-actions-wrapper">
-                        <p class="note-title">${note.title}</p>
-                        <div class="button-wrapper">
-                            <input class="favorite-button" type="checkbox"></input>
-                            <button class="delete-button">-X-</input>
-                        </div>
+                `<li id="${note.id}" class="${note.isFavorite ? 'favorite' : ''}">
+            <div class="note-wrapper">
+                <div class="note-title-actions-wrapper" style="background-color: ${colorMap[note.color]}">
+                    <p class="note-title">${note.title}</p>
+                    <div class="button-wrapper">
+                        <input class="favorite-button" type="checkbox"></input>
+                        <button class="delete-button">-X-</input>
                     </div>
-                    <p class="note-content">${note.content}</p>
                 </div>
-            </li>`
+                <p class="note-content">${note.content}</p>
+            </div>
+        </li>`
         })
         list.innerHTML = notesHTML;
     }
@@ -102,7 +102,7 @@ const view = {
 const controller = {
     addNote(title, content, color) {
         // здесь можно добавить валидацию полей
-                model.addNote(title, content, color);
+            model.addNote(title, content, color);
         // view.showMessage('Заметка добавлена')
     }
 }
