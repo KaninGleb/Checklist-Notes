@@ -50,6 +50,15 @@ const model = {
         this.updateNotesView()
     },
 
+    toggleFavorite(id) {
+        this.notes.forEach(note => {
+            if (note.id === id) {
+                note.isFavorite = !note.isFavorite;
+                this.updateNotesView();
+            }
+        })
+    },
+
     updateNotesView() {
         // 1. рендерит список заметок (вызывает метод view.renderNotes)
         view.renderNotes(this.notes);
