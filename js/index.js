@@ -137,6 +137,10 @@ const controller = {
 
     deleteNote(id) {
         model.deleteNote(id);
+    },
+
+    toggleFavorite(id) {
+        model.toggleFavorite(id);
     }
 }
 
