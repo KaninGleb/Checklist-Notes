@@ -284,16 +284,9 @@ legend {
     color: #292515;
 }
 
-.favorite-button, .delete-button {
+.favorite-checkbox, .delete-button {
     width: 16px;
     height: 16px;
-}
-
-.favorite-button {
-    display: none;
-    /*width: 16px;*/
-    /*height: 16px;*/
-    background-size: cover;
 }
 
 .delete-button {

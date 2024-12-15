@@ -93,7 +93,7 @@ const view = {
                 controller.deleteNote(noteId);
             }
 
-            if (event.target.classList.contains('favorite-button')) {
+            if (event.target.closest('.favorite-checkbox')) {
                 const noteId = +event.target.closest('li').id;
                 controller.toggleFavorite(noteId);
             }
@@ -111,9 +111,9 @@ const view = {
                     <div class="note-header" style="background-color: ${colorMap[note.color]}">
                         <p class="note-title">${note.title}</p>
                         <div class="button-wrapper">
-                            <input class="favorite-button" type="checkbox" ${note.isFavorite ? 'checked' : ''}>
-                            <img src="${note.isFavorite ? '/images/icons/main/heart-active.svg' : '/images/icons/main/heart-inactive.svg'}" alt="Favorite button">
-                            
+                            <span class="favorite-checkbox custom-checkbox">
+                                <img src="${note.isFavorite ? '/images/icons/main/heart-active.svg' : '/images/icons/main/heart-inactive.svg'}" alt="Favorite button">
+                            </span>
                             <img class="delete-button" src="/images/icons/main/trash.svg" alt="Delete button">
                         </div>
                     </div>
