@@ -8,6 +8,7 @@ const MOCK_NOTES = [
     },
     // ...
 ]
+
 const colorMap = {
     yellow: 'var(--color-yellow)',
     red: 'var(--color-red)',
@@ -15,6 +16,7 @@ const colorMap = {
     blue: 'var(--color-blue)',
     purple: 'var(--color-purple)',
 }
+
 const model = {
     notes: MOCK_NOTES,
     isShowOnlyFavorite: false,
@@ -45,14 +47,14 @@ const model = {
     //     view.renderNotes(this.notes);
     // },
 
-    deleteNote(id) {
-        this.notes = this.notes.filter(note => note.id !== id);
+    deleteNote(noteId) {
+        this.notes = this.notes.filter(note => note.id !== noteId);
         this.updateNotesView()
     },
 
-    toggleFavorite(id) {
+    toggleFavorite(noteId) {
         this.notes.forEach(note => {
-            if (note.id === id) {
+            if (note.id === noteId) {
                 note.isFavorite = !note.isFavorite;
                 this.updateNotesView();
             }
@@ -60,14 +62,11 @@ const model = {
     },
 
     updateNotesView() {
-        // 1. рендерит список заметок (вызывает метод view.renderNotes)
         view.renderNotes(this.notes);
         // 2. рендерит количество заметок (вызывает метод view.renderNotesCount)
         // view.renderNotesCount(this.notes.length);
     },
 }
-
-
 
 const view = {
     init() {
@@ -79,9 +78,7 @@ const view = {
 
         form.addEventListener('submit', (event) => {
             event.preventDefault();
-            // получаем данные из полей формы
             const color = document.querySelector('input[name="color"]:checked');
-            // передаем данные в контроллер
             controller.addNote(title.value, content.value, color.value);
 
             title.value = '';
@@ -109,7 +106,7 @@ const view = {
 
         notes.forEach(note => {
             notesHTML +=
-                `<li id="${note.id}" class="${note.isFavorite ? 'favorite' : ''}">
+            `<li id="${note.id}" class="${note.isFavorite ? 'favorite' : ''}">
                 <div class="note-wrapper">
                     <div class="note-header" style="background-color: ${colorMap[note.color]}">
                         <p class="note-title">${note.title}</p>
@@ -135,12 +132,12 @@ const controller = {
         // view.showMessage('Заметка добавлена')
     },
 
-    deleteNote(id) {
-        model.deleteNote(id);
+    deleteNote(noteId) {
+        model.deleteNote(noteId);
     },
 
-    toggleFavorite(id) {
-        model.toggleFavorite(id);
+    toggleFavorite(noteId) {
+        model.toggleFavorite(noteId);
     }
 }
 
