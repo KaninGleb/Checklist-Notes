@@ -79,7 +79,7 @@ const view = {
             content.value = '';
         });
 
-        const ul = document.querySelector('ul');
+        const ul = document.querySelector('.notes-list');
 
         ul.addEventListener('click', event => {
             if (event.target.classList.contains('delete-button')) {
