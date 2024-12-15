@@ -96,17 +96,19 @@ const view = {
         notes.forEach(note => {
             notesHTML +=
                 `<li id="${note.id}" class="${note.isFavorite ? 'favorite' : ''}">
-            <div class="note-wrapper">
-                <div class="note-title-actions-wrapper" style="background-color: ${colorMap[note.color]}">
-                    <p class="note-title">${note.title}</p>
-                    <div class="button-wrapper">
-                        <input class="favorite-button" type="checkbox"></input>
-                        <button class="delete-button">-X-</input>
+                <div class="note-wrapper">
+                    <div class="note-header" style="background-color: ${colorMap[note.color]}">
+                        <p class="note-title">${note.title}</p>
+                        <div class="button-wrapper">
+                            <input class="favorite-button" type="checkbox" ${note.isFavorite ? 'checked' : ''}>
+                            <img src="${note.isFavorite ? '/images/icons/main/heart-active.svg' : '/images/icons/main/heart-inactive.svg'}" alt="Favorite button">
+                            
+                            <img class="delete-button" src="/images/icons/main/trash.svg" alt="Delete button">
+                        </div>
                     </div>
+                    <p class="note-content">${note.content}</p>
                 </div>
-                <p class="note-content">${note.content}</p>
-            </div>
-        </li>`
+            </li>`
         })
         list.innerHTML = notesHTML;
     }
