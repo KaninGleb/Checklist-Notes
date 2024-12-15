@@ -38,20 +38,24 @@ const model = {
     //     this.updateNotesView();
     // },
     //
+    // updateNotesView() {
+    //     const notesToRender = this.notes.filter(el => el.isFavorite);
+    //     this.notes = notesToRender;
+    //
+    //     view.renderNotes(this.notes);
+    // },
+
+    deleteNote(id) {
+        this.notes = this.notes.filter(note => note.id !== id);
+        this.updateNotesView()
+    },
+
     updateNotesView() {
         // 1. рендерит список заметок (вызывает метод view.renderNotes)
         view.renderNotes(this.notes);
         // 2. рендерит количество заметок (вызывает метод view.renderNotesCount)
         // view.renderNotesCount(this.notes.length);
     },
-    //
-    //
-    // updateNotesView() {
-    //     const notesToRender = this.notes.filter(el => el.isFavorite);
-    //     this.notes = notesToRender;
-    //
-    //     view.renderNotes(this.notes);
-    // }
 }
 
 
