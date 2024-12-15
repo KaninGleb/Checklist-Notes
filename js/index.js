@@ -56,10 +56,12 @@ const model = {
         this.notes.forEach(note => {
             if (note.id === noteId) {
                 note.isFavorite = !note.isFavorite;
-                this.updateNotesView();
+                // Обновляем вид после изменения состояния
+                view.renderNotes(this.notes);
             }
         })
-    },
+    }
+    ,
 
     updateNotesView() {
         view.renderNotes(this.notes);
@@ -106,12 +108,13 @@ const view = {
 
         notes.forEach(note => {
             notesHTML +=
-            `<li id="${note.id}" class="${note.isFavorite ? 'favorite' : ''}">
+                `<li id="${note.id}" class="${note.isFavorite ? 'favorite-note' : ''}">
                 <div class="note-wrapper">
                     <div class="note-header" style="background-color: ${colorMap[note.color]}">
                         <p class="note-title">${note.title}</p>
-                        <div class="button-wrapper">
+                        <div class="buttons-wrapper">
                             <span class="favorite-checkbox custom-checkbox">
+                            <!--<input type="checkbox" class="checkbox favorite-button" ${note.isFavorite ? 'checked' : ''} name="Favorite" />-->
                                 <img src="${note.isFavorite ? '/images/icons/main/heart-active.svg' : '/images/icons/main/heart-inactive.svg'}" alt="Favorite button">
                             </span>
                             <img class="delete-button" src="/images/icons/main/trash.svg" alt="Delete button">
