@@ -92,8 +92,13 @@ const view = {
 
         ul.addEventListener('click', event => {
             if (event.target.classList.contains('delete-button')) {
-            const noteId = +event.target.closest('li').id;
-            controller.deleteNote(noteId);
+                const noteId = +event.target.closest('li').id;
+                controller.deleteNote(noteId);
+            }
+
+            if (event.target.classList.contains('favorite-button')) {
+                const noteId = +event.target.closest('li').id;
+                controller.toggleFavorite(noteId);
             }
         })
     },
