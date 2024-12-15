@@ -8,7 +8,13 @@ const MOCK_NOTES = [
     },
     // ...
 ]
-
+const colorMap = {
+    yellow: 'var(--color-yellow)',
+    red: 'var(--color-red)',
+    green: 'var(--color-green)',
+    blue: 'var(--color-blue)',
+    purple: 'var(--color-purple)',
+}
 const model = {
     notes: MOCK_NOTES,
     isShowOnlyFavorite: false,
@@ -48,13 +54,7 @@ const model = {
     // }
 }
 
-const colorMap = {
-    yellow: 'var(--color-yellow)',
-    red: 'var(--color-red)',
-    green: 'var(--color-green)',
-    blue: 'var(--color-blue)',
-    purple: 'var(--color-purple)',
-}
+
 
 const view = {
     init() {
@@ -73,6 +73,15 @@ const view = {
 
             title.value = '';
             content.value = '';
+        });
+
+        const ul = document.querySelector('ul');
+
+        ul.addEventListener('click', event => {
+            if (event.target.classList.contains('delete-button')) {
+            const noteId = +event.target.closest('li').id;
+            controller.deleteNote(noteId);
+            }
         })
     },
 
