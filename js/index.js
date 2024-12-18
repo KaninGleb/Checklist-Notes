@@ -82,9 +82,7 @@ const view = {
         form.addEventListener('submit', (event) => {
             event.preventDefault();
             const color = document.querySelector('input[name="color"]:checked');
-            controller.addNote(title.value, content.value, color.value);
-
-            const result = controller.addNote(title, content, color);
+            const result = controller.addNote(title.value, content.value, color.value);
 
             if (result) {
                 title.value = '';
@@ -148,12 +146,8 @@ const controller = {
             console.log('Содержимое не может быть пустым');
             return false;
         }
-        if (title.length > 45) {
-            console.log('Заголовок не должен превышать 45 символов');
-            return false;
-        }
-        if (content.length > 300) {
-            console.log('Содержимое заметки не должно превышать 300 символов');
+        if (title.length > 50) {
+            console.log('Заголовок не должен превышать 50 символов');
             return false;
         }
         model.addNote(title, content, color);
