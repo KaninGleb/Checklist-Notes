@@ -145,12 +145,8 @@ const view = {
 
 const controller = {
     addNote(title, content, color) {
-        if (!title.trim()) {
-            console.log('Название не может быть пустым');
-            return false;
-        }
-        if (!content.trim()) {
-            console.log('Содержимое не может быть пустым');
+        if (!title.trim() || !content.trim()) {
+            console.log('Оба поля должны иметь данные');
             return false;
         }
         if (title.length > 50) {
