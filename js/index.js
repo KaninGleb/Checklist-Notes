@@ -66,13 +66,14 @@ const model = {
     updateNotesView() {
         view.renderNotes(this.notes);
         // 2. рендерит количество заметок (вызывает метод view.renderNotesCount)
-        // view.renderNotesCount(this.notes.length);
+        view.renderNotesCounter(this.notes.length);
     },
 }
 
 const view = {
     init() {
-        this.renderNotes(model.notes)
+        this.renderNotes(model.notes);
+        this.renderNotesCounter(model.notes.length);
 
         const form = document.querySelector('.note-form');
         const title = document.querySelector('.note_input');
@@ -125,6 +126,11 @@ const view = {
             </li>`
         })
         list.innerHTML = notesHTML;
+    },
+
+    renderNotesCounter(count) {
+        const counter = document.querySelector('.note_counter b');
+        counter.textContent = count;
     }
 }
 
