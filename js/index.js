@@ -77,7 +77,13 @@ const view = {
 
         const form = document.querySelector('.note-form');
         const title = document.querySelector('.note_input');
+        const titleLabel = document.querySelector('.name_wrapper label');
         const content = document.querySelector('.note_description');
+
+        title.addEventListener('input', () => {
+            const currentLength = title.value.length;
+            titleLabel.textContent = `Название заметки ${currentLength}/50`;
+        })
 
         form.addEventListener('submit', (event) => {
             event.preventDefault();
@@ -87,6 +93,7 @@ const view = {
             if (result) {
                 title.value = '';
                 content.value = '';
+                titleLabel.textContent = `Название заметки 0/50`
             }
         });
 
