@@ -84,8 +84,12 @@ const view = {
             const color = document.querySelector('input[name="color"]:checked');
             controller.addNote(title.value, content.value, color.value);
 
-            title.value = '';
-            content.value = '';
+            const result = controller.addNote(title, content, color);
+
+            if (result) {
+                title.value = '';
+                content.value = '';
+            }
         });
 
         const ul = document.querySelector('.notes-list');
@@ -136,9 +140,24 @@ const view = {
 
 const controller = {
     addNote(title, content, color) {
-        // здесь можно добавить валидацию полей
-            model.addNote(title, content, color);
-        // view.showMessage('Заметка добавлена')
+        if (!title.trim()) {
+            console.log('Название не может быть пустым');
+            return false;
+        }
+        if (!content.trim()) {
+            console.log('Содержимое не может быть пустым');
+            return false;
+        }
+        if (title.length > 45) {
+            console.log('Заголовок не должен превышать 45 символов');
+            return false;
+        }
+        if (content.length > 300) {
+            console.log('Содержимое заметки не должно превышать 300 символов');
+            return false;
+        }
+        model.addNote(title, content, color);
+        return true;
     },
 
     deleteNote(noteId) {
