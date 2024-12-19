@@ -76,13 +76,20 @@ const view = {
         this.renderNotesCounter(model.notes.length);
 
         const form = document.querySelector('.note-form');
-        const title = document.querySelector('.note_input');
+        const title = document.querySelector('.note_title');
         const titleLabel = document.querySelector('.name_wrapper label');
         const content = document.querySelector('.note_description');
+        const contentLabel = document.querySelector('.description_wrapper label');
 
         title.addEventListener('input', () => {
-            const currentLength = title.value.length;
-            titleLabel.textContent = `Название заметки ${currentLength}/50`;
+            const currentTitleLength = title.value.length;
+            titleLabel.textContent = `Название заметки (${currentTitleLength}/50)`;
+            titleLabel.style.color = currentTitleLength > 50 ? 'red' : '';
+        })
+
+        content.addEventListener('input', () => {
+            const currentContentLength = content.value.length;
+            contentLabel.textContent = `Описание новой заметки (${currentContentLength})`
         })
 
         form.addEventListener('submit', (event) => {
@@ -93,7 +100,8 @@ const view = {
             if (result) {
                 title.value = '';
                 content.value = '';
-                titleLabel.textContent = `Название заметки 0/50`
+                titleLabel.textContent = `Название заметки`;
+                contentLabel.textContent = `Описание новой заметки`;
             }
         });
 
