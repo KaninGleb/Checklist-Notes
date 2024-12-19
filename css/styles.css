@@ -144,12 +144,18 @@ legend {
 
 .radio-list {
     display: flex;
-    /*margin: 6px 0 18px 0;*/
-    /*margin-top: 6px;*/
     margin-bottom: 12px;
-    gap: 14px;
     list-style: none;
     padding-left: 0;
+}
+
+.radio-list li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    gap: 8px;
 }
 
 .radio {
@@ -158,9 +164,12 @@ legend {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background-color: green;
     cursor: pointer;
     transition: 0.3s ease;
+}
+
+.radio:checked {
+    box-shadow: 0 0 0 3px white, 0 0 0 4.5px #007BFF;
 }
 
 .radio[value="yellow"] {
@@ -181,11 +190,6 @@ legend {
 
 .radio[value="purple"] {
     background-color: var(--color-purple);
-}
-
-.radio:checked {
-    border-color: white;
-    box-shadow: 0 0 0 3px white, 0 0 0 4.5px #007BFF;
 }
 
 .add_note_button {
