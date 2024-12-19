@@ -137,12 +137,11 @@ ul {
     width: 848px;
     height: 84px;
     resize: none;
-    line-height: 1.5; /* Настройка высоты строки */
-    font-family: "Montserrat", sans-serif; /* Установка шрифта для вводимого текста */
-    font-weight: 400; /* Настройка жирности текста */
-    font-size: 14px; /* Настройка размера шрифта */
-    color: #000000; /* Цвет вводимого текста */
-    box-sizing: border-box; /* Учет отступов в ширине и высоте */
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000000;
 }
 
 .note_description::placeholder, .note_title::placeholder {
