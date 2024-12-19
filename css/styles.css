@@ -316,6 +316,9 @@ legend {
 
     padding: 12px;
     border-radius: 10px 10px 0 0;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
 }
 
 .note-title {
@@ -366,4 +369,7 @@ legend {
     padding: 12px;
     background: #ffffff;
     border-radius: 0 0 10px 10px;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
 }
