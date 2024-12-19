@@ -125,9 +125,9 @@ const view = {
                         <div class="buttons-wrapper">
                             <span class="favorite-checkbox custom-checkbox">
                             <!--<input type="checkbox" class="checkbox favorite-button" ${note.isFavorite ? 'checked' : ''} name="Favorite" />-->
-                                <img src="${note.isFavorite ? '/images/icons/main/heart-active.svg' : '/images/icons/main/heart-inactive.svg'}" alt="Favorite button">
+                                <img src="${note.isFavorite ? './images/icons/main/heart-active.svg' : './images/icons/main/heart-inactive.svg'}" alt="Favorite button">
                             </span>
-                            <img class="delete-button" src="/images/icons/main/trash.svg" alt="Delete button">
+                            <img class="delete-button" src="./images/icons/main/trash.svg" alt="Delete button">
                         </div>
                     </div>
                     <p class="note-content">${note.content}</p>
