@@ -29,23 +29,14 @@ const model = {
             color,
             isFavorite: false
         }
-        // 2. добавим заметку в начало списка
-        this.notes.unshift(note)
-        // 3. обновим view
+        this.notes.unshift(note);
         this.updateNotesView();
     },
 
-    // toggleShowOnlyFavorite(isShowOnlyFavorite) {
-    //     this.isShowOnlyFavorite = !this.isShowOnlyFavorite;
-    //     this.updateNotesView();
-    // },
-    //
-    // updateNotesView() {
-    //     const notesToRender = this.notes.filter(el => el.isFavorite);
-    //     this.notes = notesToRender;
-    //
-    //     view.renderNotes(this.notes);
-    // },
+    toggleShowOnlyFavorite() {
+        this.isShowOnlyFavorite = !this.isShowOnlyFavorite;
+        this.updateNotesView();
+    },
 
     deleteNote(noteId) {
         this.notes = this.notes.filter(note => note.id !== noteId);
@@ -60,12 +51,13 @@ const model = {
                 view.renderNotes(this.notes);
             }
         })
-    }
-    ,
+    },
 
     updateNotesView() {
-        view.renderNotes(this.notes);
-        // 2. рендерит количество заметок (вызывает метод view.renderNotesCount)
+        const notesToRender = this.isShowOnlyFavorite
+            ? this.notes.filter(note => note.isFavorite)
+            : this.notes;
+        view.renderNotes(notesToRender);
         view.renderNotesCounter(this.notes.length);
     },
 }
@@ -80,6 +72,8 @@ const view = {
         const titleLabel = document.querySelector('.name_wrapper label');
         const content = document.querySelector('.note_description');
         const contentLabel = document.querySelector('.description_wrapper label');
+
+        const toggleFavoriteButton = document.querySelector('#toggle-favorites');
 
         title.addEventListener('input', () => {
             const currentTitleLength = title.value.length;
@@ -105,8 +99,11 @@ const view = {
             }
         });
 
-        const ul = document.querySelector('.notes-list');
+        toggleFavoriteButton.addEventListener('click', () => {
+            controller.toggleShowOnlyFavorite();
+        })
 
+        const ul = document.querySelector('.notes-list');
         ul.addEventListener('click', event => {
             if (event.target.classList.contains('delete-button')) {
                 const noteId = +event.target.closest('li').id;
@@ -165,6 +162,10 @@ const controller = {
         return true;
     },
 
+    toggleShowOnlyFavorite() {
+        model.toggleShowOnlyFavorite();
+    },
+
     deleteNote(noteId) {
         model.deleteNote(noteId);
     },
@@ -175,7 +176,7 @@ const controller = {
 }
 
 function init() {
-    view.init()
+    view.init();
 }
 
-init()
+init();
