@@ -106,7 +106,13 @@ ul {
     margin-bottom: 12px;
 }
 
-.note_input {
+.note_title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #292515;
+
     border: 1px solid #e8e8e8;
     border-radius: 10px;
     padding: 6px 12px;
@@ -130,6 +136,21 @@ ul {
     padding: 6px 12px;
     width: 848px;
     height: 84px;
+    resize: none;
+    line-height: 1.5; /* Настройка высоты строки */
+    font-family: "Montserrat", sans-serif; /* Установка шрифта для вводимого текста */
+    font-weight: 400; /* Настройка жирности текста */
+    font-size: 14px; /* Настройка размера шрифта */
+    color: #000000; /* Цвет вводимого текста */
+    box-sizing: border-box; /* Учет отступов в ширине и высоте */
+}
+
+.note_description::placeholder, .note_title::placeholder {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.71429;
+    color: #919191;
 }
 
 /* ============== Color ============== */
