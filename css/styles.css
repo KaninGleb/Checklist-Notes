@@ -29,7 +29,7 @@ ul {
     max-width: 1152px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 .no_select {
@@ -264,7 +264,7 @@ legend {
 .note-wrapper {
     border-radius: 10px;
     width: 368px;
-    height: 216px;
+    min-height: 216px;
     box-shadow: 0 4px 8px 0 rgba(11, 12, 13, 0.08), 0 8px 16px 0 rgba(11, 12, 13, 0.04), 0 1px 2px 0 rgba(11, 12, 13, 0.08);
 }
 
@@ -323,4 +323,5 @@ legend {
     color: #000;
     padding: 12px;
     background: #ffffff;
+    border-radius: 0 0 10px 10px;
 }

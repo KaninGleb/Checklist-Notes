@@ -39,14 +39,14 @@
         <div class="notes_create_wrapper">
             <form class="note-form" name="notes">
                 <div class="name_wrapper">
-                    <label class="no_select">Название заметки</label>
-                    <input type="text" class="note_input" placeholder="Напишите название новой заметки..." maxlength="50">
+                    <label class="no_select" for="noteTitle">Название заметки</label>
+                    <input type="text" class="note_input" id="noteTitle" placeholder="Напишите название новой заметки..." maxlength="50">
                 </div>
 
                 <div class="description_wrapper">
                     <div class="description_form">
-                        <label class="no_select">Описание новой заметки</label>
-                        <input type="text" class="note_description" placeholder="Напишите название новой заметки..."></input>
+                        <label class="no_select" for="noteDescription">Описание новой заметки</label>
+                        <input type="text" class="note_description" id="noteDescription" placeholder="Напишите название новой заметки...">
                     </div>
 
                     <fieldset class="fieldset">
@@ -73,9 +73,6 @@
                             Добавить заметку
                         </button>
                     </fieldset>
-
-                    <!-- your code -->
-
                 </div>
             </form>
         </div>
