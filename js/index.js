@@ -57,7 +57,9 @@ const model = {
         const notesToRender = this.isShowOnlyFavorite
             ? this.notes.filter(note => note.isFavorite)
             : this.notes;
-        view.renderNotes(notesToRender);
+        const showNoFavoritesMessage = this.isShowOnlyFavorite && notesToRender.length === 0;
+
+        view.renderNotes(notesToRender, showNoFavoritesMessage);
         view.renderNotesCounter(this.notes.length);
     },
 }
@@ -117,28 +119,34 @@ const view = {
         })
     },
 
-    renderNotes(notes) {
+    renderNotes(notes, showNoFavoritesMessage) {
         const list = document.querySelector('.notes-list');
         let notesHTML = '';
 
+        if (showNoFavoritesMessage) {
+            notesHTML = `<li class="no-favorite-notes-screen-massage">У вас нет избранных заметок!</li>`;
+        } else if (notes.length === 0) {
+            notesHTML = `<li class="no-notes-screen-massage">У вас нет еще ни одной заметки<br>Заполните поля выше и создайте свою первую заметку!</li>`
+        } else {
         notes.forEach(note => {
             notesHTML +=
                 `<li id="${note.id}" class="${note.isFavorite ? 'favorite-note' : ''}">
-                <div class="note-wrapper">
-                    <div class="note-header" style="background-color: ${colorMap[note.color]}">
-                        <p class="note-title">${note.title}</p>
-                        <div class="buttons-wrapper">
-                            <span class="favorite-checkbox custom-checkbox">
-                            <!--<input type="checkbox" class="checkbox favorite-button" ${note.isFavorite ? 'checked' : ''} name="Favorite" />-->
-                                <img src="${note.isFavorite ? './images/icons/main/heart-active.svg' : './images/icons/main/heart-inactive.svg'}" alt="Favorite button">
-                            </span>
-                            <img class="delete-button" src="./images/icons/main/trash.svg" alt="Delete button">
+                    <div class="note-wrapper">
+                        <div class="note-header" style="background-color: ${colorMap[note.color]}">
+                            <p class="note-title">${note.title}</p>
+                            <div class="buttons-wrapper">
+                                <span class="favorite-checkbox custom-checkbox">
+                                <!--<input type="checkbox" class="checkbox favorite-button" ${note.isFavorite ? 'checked' : ''} name="Favorite" />-->
+                                    <img src="${note.isFavorite ? './images/icons/main/heart-active.svg' : './images/icons/main/heart-inactive.svg'}" alt="Favorite button">
+                                </span>
+                                <img class="delete-button" src="./images/icons/main/trash.svg" alt="Delete button">
+                            </div>
                         </div>
+                        <p class="note-content">${note.content}</p>
                     </div>
-                    <p class="note-content">${note.content}</p>
-                </div>
-            </li>`
+                </li>`
         })
+        }
         list.innerHTML = notesHTML;
     },
 

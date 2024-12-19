@@ -277,6 +277,24 @@ legend {
     background-image: url('/images/icons/main/checkbox-active.svg');
 }
 
+/* ============== Screen message ============== */
+
+.no-notes-screen-massage, .no-favorite-notes-screen-massage {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #000000;
+}
+
+.no-notes-screen-massage {
+    margin: 138px auto 0;
+}
+
+.no-favorite-notes-screen-massage {
+    margin: 155px auto 0;
+}
+
 /* ============== Notes list ============== */
 
 .notes-list {
