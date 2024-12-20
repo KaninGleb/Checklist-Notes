@@ -342,6 +342,12 @@ legend {
     cursor: pointer;
 }
 
+.favorite-checkbox img {
+    width: 16px;
+    height: 16px;
+    margin: -1px;
+}
+
 .favorite-checkbox, .delete-button {
     width: 16px;
     height: 16px;
