@@ -6,7 +6,13 @@ const MOCK_NOTES = [
         color: 'green',
         isFavorite: false,
     },
-    // ...
+    {
+        id: 2,
+        title: 'Note 2',
+        content: 'Content 2',
+        color: 'red',
+        isFavorite: true,
+    }
 ]
 
 const colorMap = {
