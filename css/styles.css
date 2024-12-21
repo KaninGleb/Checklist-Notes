@@ -198,10 +198,8 @@ fieldset {
 /* ============== Filter ============== */
 
 .filter-box {
-    font-weight: 400;
     font-size: 12px;
     line-height: 2;
-    color: #000000;
     margin: 24px 0 12px;
 
     display: flex;
@@ -227,9 +225,6 @@ fieldset {
     width: 16px;
     height: 16px;
     background-size: cover;
-}
-
-.filter-checkbox {
     background-image: url('../images/icons/main/checkbox-inactive.svg');
 }
 
