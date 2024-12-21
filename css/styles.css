@@ -4,6 +4,8 @@
     --color-green: #C2F37D;
     --color-blue: #7DE1F3;
     --color-purple: #E77DF3;
+    --color-success-message: #47b27d;
+    --color-error-message: #f23d5b;
 }
 
 *,
@@ -378,4 +380,66 @@ legend {
     overflow-wrap: break-word;
     word-break: normal;
     hyphens: auto;
+}
+
+/* ============== Messages box ============== */
+
+.messages-box {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.71429;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: fixed;
+    right: 64px;
+    bottom: 72px;
+    z-index: 1000;
+}
+
+.message-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    border-radius: 10px;
+    width: fit-content;
+    max-width: 427px;
+    max-height: 48px;
+    margin-top: 5px;
+    box-shadow: 0 8px 12px 0 rgba(11, 12, 13, 0.08), 0 16px 24px 0 rgba(11, 12, 13, 0.04), 0 1px 2px 0 rgba(11, 12, 13, 0.08);
+    position: relative; /* нужно для шкалы */
+}
+
+.success-message {background-color: var(--color-success-message);}
+.error-message {background-color: var(--color-error-message);}
+
+.message-item img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    filter: brightness(0) invert(1);
+    pointer-events: none;
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    overflow: hidden;
+    animation: progressAnimation 3s linear forwards;
+}
+
+@keyframes progressAnimation {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 0%;
+    }
 }

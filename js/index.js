@@ -141,10 +141,7 @@ const view = {
                         <div class="note-header" style="background-color: ${colorMap[note.color]}">
                             <p class="note-title">${note.title}</p>
                             <div class="buttons-wrapper">
-                                <span class="favorite-checkbox custom-checkbox">
-                                <!--<input type="checkbox" class="checkbox favorite-button" ${note.isFavorite ? 'checked' : ''} name="Favorite" />-->
-                                    <img src="${note.isFavorite ? './images/icons/main/heart-active.svg' : './images/icons/main/heart-inactive.svg'}" alt="Favorite button">
-                                </span>
+                                <img class="favorite-checkbox" src="${note.isFavorite ? './images/icons/main/heart-active.svg' : './images/icons/main/heart-inactive.svg'}" alt="Favorite button">
                                 <img class="delete-button" src="./images/icons/main/trash.svg" alt="Delete button">
                             </div>
                         </div>
@@ -159,20 +156,41 @@ const view = {
     renderNotesCounter(count) {
         const counter = document.querySelector('.note_counter b');
         counter.textContent = count;
+    },
+
+    showMessage(message, isSuccess) {
+    const messagesBox = document.querySelector('.messages-box');
+    const messageId = `message-${new Date().getTime()}`;
+    const messageHtml = `
+    <div class="message-item no_select ${isSuccess ? 'success-message' : 'error-message'}" id="${messageId}">
+        <img src="${isSuccess ? './images/icons/main/Done.svg' : './images/icons/main/warning.svg'}" alt="${isSuccess ? 'Success' : 'Error'}">
+        <span>${message}</span>
+        <div class="progress-bar"></div>
+    </div>`;
+
+    messagesBox.innerHTML += messageHtml;
+
+    setTimeout(() => {
+        const messageElement = document.getElementById(messageId);
+        if (messageElement) {
+            messageElement.remove();
+        }
+    }, 3000);
     }
 }
 
 const controller = {
     addNote(title, content, color) {
         if (!title.trim() || !content.trim()) {
-            console.log('Оба поля должны иметь данные');
+            view.showMessage('Оба поля должны иметь данные', false);
             return false;
         }
         if (title.length > 50) {
-            console.log('Заголовок не должен превышать 50 символов');
+            view.showMessage('Максимальная длина заголовка - 50 символов', false);
             return false;
         }
         model.addNote(title, content, color);
+        view.showMessage('Заметка добавлена!', true);
         return true;
     },
 
