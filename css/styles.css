@@ -79,39 +79,36 @@ ul {
     border-radius: 4px;
     padding: 24px;
     margin-top: 24px;
-    width: 100%;
-    max-width: 1152px;
-    height: 228px;
-    box-shadow: 0 8px 12px 0 rgba(11, 12, 13, 0.08), 0 16px 24px 0 rgba(11, 12, 13, 0.04), 0 1px 2px 0 rgba(11, 12, 13, 0.08);
+    box-shadow: 0 8px 12px rgba(11, 12, 13, 0.08), 0 16px 24px rgba(11, 12, 13, 0.04);
     background: #fff;
 }
 
 .note-form {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
     font-size: 12px;
     line-height: 2;
     color: #919191;
 }
 
-.name_wrapper {
+.name_wrapper, .description_form {
     display: flex;
     flex-direction: column;
     margin-bottom: 12px;
 }
 
-.note_title {
+.note_title, .note_description {
     font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
     line-height: 1.5;
-    color: #292515;
-
     border: 1px solid #e8e8e8;
     border-radius: 10px;
     padding: 6px 12px;
+}
+
+.note_title {
+    font-weight: 500;
+    font-size: 16px;
     width: 344px;
     height: 36px;
+    color: #292515;
 }
 
 .description_wrapper {
@@ -119,31 +116,18 @@ ul {
     gap: 24px;
 }
 
-.description_form {
-    display: flex;
-    flex-direction: column;
-}
-
 .note_description {
-    border: 1px solid #e8e8e8;
-    border-radius: 10px;
-    padding: 6px 12px;
     width: 848px;
     height: 84px;
     resize: none;
-    line-height: 1.5;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
     font-size: 14px;
     color: #000000;
 }
 
 .note_description::placeholder, .note_title::placeholder {
-    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.71429;
-    color: #919191;
 }
 
 /* ============== Color ============== */
