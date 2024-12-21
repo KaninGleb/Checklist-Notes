@@ -53,7 +53,6 @@ const model = {
         this.notes.forEach(note => {
             if (note.id === noteId) {
                 note.isFavorite = !note.isFavorite;
-                // Обновляем вид после изменения состояния
                 view.renderNotes(this.notes);
             }
         })
@@ -81,7 +80,13 @@ const view = {
         const titleLabel = document.querySelector('.name_wrapper label');
         const content = document.querySelector('.note_description');
         const contentLabel = document.querySelector('.description_wrapper label');
-
+        const clearInputFields = () => {
+            title.value = '',
+            content.value = '',
+            titleLabel.textContent = `Название заметки`,
+            contentLabel.textContent = `Описание новой заметки`
+        }
+        
         const toggleFavoriteButton = document.querySelector('#toggle-favorites');
 
         title.addEventListener('input', () => {
@@ -99,12 +104,21 @@ const view = {
             event.preventDefault();
             const color = document.querySelector('input[name="color"]:checked');
             const result = controller.addNote(title.value, content.value, color.value);
-
+            
             if (result) {
-                title.value = '';
-                content.value = '';
-                titleLabel.textContent = `Название заметки`;
-                contentLabel.textContent = `Описание новой заметки`;
+                clearInputFields();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.ctrlKey && event.key === 'Enter') {
+                event.preventDefault();
+                const color = document.querySelector('input[name="color"]:checked');
+                const result = controller.addNote(title.value, content.value, color.value);
+                
+                if (result) {
+                    clearInputFields();
+                }
             }
         });
 
