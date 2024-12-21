@@ -130,30 +130,15 @@ ul {
     line-height: 1.71429;
 }
 
-/* ============== Color ============== */
+/* ============== Color Selection ============== */
 
 fieldset {
-    all: unset;
-}
-
-legend {
     all: unset;
 }
 
 .radio-list {
     display: flex;
     margin-bottom: 12px;
-    list-style: none;
-    padding-left: 0;
-}
-
-.radio-list li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 36px;
-    height: 36px;
-    gap: 8px;
 }
 
 .radio {
@@ -166,44 +151,37 @@ legend {
     transition: 0.3s ease;
 }
 
+.radio-list li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    gap: 8px;
+}
+
 .radio:checked {
     box-shadow: 0 0 0 3px white, 0 0 0 4.5px #007BFF;
 }
 
-.radio[value="yellow"] {
-    background-color: var(--color-yellow);
-}
-
-.radio[value="red"] {
-    background-color: var(--color-red);
-}
-
-.radio[value="green"] {
-    background-color: var(--color-green);
-}
-
-.radio[value="blue"] {
-    background-color: var(--color-blue);
-}
-
-.radio[value="purple"] {
-    background-color: var(--color-purple);
-}
+.radio[value="yellow"] { background-color: var(--color-yellow); }
+.radio[value="red"] { background-color: var(--color-red); }
+.radio[value="green"] { background-color: var(--color-green); }
+.radio[value="blue"] { background-color: var(--color-blue); }
+.radio[value="purple"] { background-color: var(--color-purple); }
 
 .add_note_button {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 14px;
-
     font-family: inherit;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
     color: #ffffff;
-
-    border-radius: 10px;
     border: none;
+    border-radius: 10px;
     padding: 6px 24px;
     width: 232px;
     height: 36px;
