@@ -17,7 +17,6 @@
 }
 
 body {
-    margin: 0;
     font-family: "Montserrat", sans-serif;
 }
 
@@ -26,11 +25,8 @@ ul {
 }
 
 .container {
-    height: 100%;
-    width: 100%;
     max-width: 1152px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     /*border: 1px solid red;*/
 }
 
@@ -50,7 +46,6 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff;
     height: 100%;
 }
 
@@ -73,11 +68,8 @@ ul {
 }
 
 .note_counter {
-    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 16px;
-    line-height: 1.5;
-    text-align: right;
     color: #000;
 }
 
