@@ -50,7 +50,7 @@ const model = {
         setTimeout(() => {
             this.notes = this.notes.filter(note => note.id !== noteId);
             this.updateNotesView();
-        }, 300);
+        }, 200);
     },
 
     toggleFavorite(noteId) {
@@ -185,23 +185,26 @@ const view = {
     },
 
     showMessage(message, isSuccess) {
-    const messagesBox = document.querySelector('.messages-box');
-    const messageId = `message-${new Date().getTime()}`;
-    const messageHtml = `
-    <div class="message-item no_select ${isSuccess ? 'success-message' : 'error-message'}" id="${messageId}">
-        <img src="${isSuccess ? './images/icons/main/Done.svg' : './images/icons/main/warning.svg'}" alt="${isSuccess ? 'Success' : 'Error'}">
-        <span>${message}</span>
-        <div class="progress-bar"></div>
-    </div>`;
+        const messagesBox = document.querySelector('.messages-box');
+        const messageId = `message-${new Date().getTime()}`;
+        const messageHtml = `
+            <div class="message-item no_select ${isSuccess ? 'success-message' : 'error-message'}" id="${messageId}">
+                <img src="${isSuccess ? './images/icons/main/Done.svg' : './images/icons/main/warning.svg'}" alt="${isSuccess ? 'Success' : 'Error'}">
+                <span>${message}</span>
+                <div class="progress-bar"></div>
+            </div>`;
 
-    messagesBox.innerHTML += messageHtml;
+        messagesBox.innerHTML += messageHtml;
 
-    setTimeout(() => {
-        const messageElement = document.getElementById(messageId);
-        if (messageElement) {
-            messageElement.remove();
-        }
-    }, 3000);
+        setTimeout(() => {
+            const messageElement = document.getElementById(messageId);
+            if (messageElement) {
+                messageElement.classList.add('fade-out');
+                setTimeout(() => {
+                    messageElement.remove();
+                }, 300);
+            }
+        }, 3000);
     }
 }
 
