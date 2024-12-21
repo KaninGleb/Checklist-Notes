@@ -261,6 +261,10 @@ legend {
     cursor: pointer;
 }
 
+.hidden-notes-message {
+    font-weight: 700;
+}
+
 .checkbox {
     display: none;
 }

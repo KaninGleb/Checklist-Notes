@@ -64,8 +64,9 @@ const model = {
             ? this.notes.filter(note => note.isFavorite)
             : this.notes;
         const showNoFavoritesMessage = this.isShowOnlyFavorite && notesToRender.length === 0;
+        const hiddenNotesCount = this.notes.length - notesToRender.length;
 
-        view.renderNotes(notesToRender, showNoFavoritesMessage);
+        view.renderNotes(notesToRender, showNoFavoritesMessage, hiddenNotesCount);
         view.renderNotesCounter(this.notes.length);
     },
 }
@@ -125,7 +126,7 @@ const view = {
         })
     },
 
-    renderNotes(notes, showNoFavoritesMessage) {
+    renderNotes(notes, showNoFavoritesMessage, hiddenNotesCount) {
         const list = document.querySelector('.notes-list');
         let notesHTML = '';
 
@@ -151,6 +152,13 @@ const view = {
         })
         }
         list.innerHTML = notesHTML;
+
+        const hiddenNotesMessage = document.querySelector('.hidden-notes-message');
+        if (hiddenNotesCount > 0) {
+            hiddenNotesMessage.textContent = `(Скрыто: ${hiddenNotesCount})`
+        } else {
+            hiddenNotesMessage.textContent = ''
+        }
     },
 
     renderNotesCounter(count) {
