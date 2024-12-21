@@ -45,8 +45,12 @@ const model = {
     },
 
     deleteNote(noteId) {
-        this.notes = this.notes.filter(note => note.id !== noteId);
-        this.updateNotesView()
+        const noteElement = document.getElementById(noteId);
+        noteElement.classList.add('fade-out');
+        setTimeout(() => {
+            this.notes = this.notes.filter(note => note.id !== noteId);
+            this.updateNotesView();
+        }, 300);
     },
 
     toggleFavorite(noteId) {
