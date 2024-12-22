@@ -85,15 +85,6 @@ const model = {
         this.updateNotesView();
     },
 
-    deleteNote(noteId) {
-        const noteElement = document.getElementById(noteId);
-        noteElement.classList.add('fade-out');
-        setTimeout(() => {
-            this.notes = this.notes.filter(note => note.id !== noteId);
-            this.updateNotesView();
-        }, 200);
-    },
-
     toggleFavorite(noteId) {
         this.notes.forEach(note => {
             if (note.id === noteId) {
@@ -103,16 +94,34 @@ const model = {
         })
     },
 
+    deleteNote(noteId) {
+        const noteElement = document.getElementById(noteId);
+        noteElement.classList.add('fade-out');
+        setTimeout(() => {
+            this.notes = this.notes.filter(note => note.id !== noteId);
+            this.updateNotesView();
+        }, 200);
+    },
+
     updateNotesView() {
         const notesToRender = this.isShowOnlyFavorite
             ? this.notes.filter(note => note.isFavorite)
             : this.notes;
+
         const showNoFavoritesMessage = this.isShowOnlyFavorite && notesToRender.length === 0;
         const hiddenNotesCount = this.notes.length - notesToRender.length;
 
         view.renderNotes(notesToRender, showNoFavoritesMessage, hiddenNotesCount);
         view.renderNotesCounter(this.notes.length);
+
+        const customContainer = document.querySelector('#custom-container');
+        if (this.notes.length > 0) {
+            customContainer.classList.add('custom-container');
+        } else {
+            customContainer.classList.remove('custom-container');
+        }
     },
+
 }
 
 const view = {
