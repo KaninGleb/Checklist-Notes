@@ -2,18 +2,59 @@ const MOCK_NOTES = [
     {
         id: 1,
         title: 'Работа с формами',
-        content: 'К определённым полям формы можно обратиться через form.elements по значению, указанному в атрибуте name',
+        content: 'К определённым полям формы можно обратиться через form.elements по значению, указанному в атрибуте name.',
         color: 'green',
         isFavorite: false,
     },
     {
         id: 2,
-        title: 'Note 2',
-        content: 'Content 2',
+        title: 'Обработка событий',
+        content: 'События в JavaScript позволяют реагировать на действия пользователя, такие как клики или нажатия клавиш.',
         color: 'red',
         isFavorite: true,
-    }
-]
+    },
+    {
+        id: 3,
+        title: 'Асинхронные операции',
+        content: 'Используйте промисы для работы с асинхронными операциями. Это позволит избежать callback hell и сделает код более читаемым. Промисы можно легко комбинировать с async/await для упрощения синтаксиса.',
+        color: 'blue',
+        isFavorite: false,
+    },
+    {
+        id: 4,
+        title: 'CSS Flexbox',
+        content: 'Flexbox упрощает создание адаптивных макетов. Используйте свойства justify-content и align-items для выравнивания элементов в контейнере. Flexbox позволяет легко управлять пространством между элементами и изменять их порядок.',
+        color: 'yellow',
+    },
+    {
+        id: 5,
+        title: 'JavaScript ES6',
+        content: 'Используйте стрелочные функции и let/const для работы с переменными и функциями.',
+        color: 'purple',
+        isFavorite: false,
+    },
+    {
+        id: 6,
+        title: 'React Hooks',
+        content: 'Hooks, такие как useState и useEffect, позволяют управлять состоянием и жизненным циклом компонентов.',
+        color: 'green',
+        isFavorite: true,
+    },
+    {
+        id: 7,
+        title: 'API Fetch',
+        content: 'Используйте fetch для получения данных с сервера. Он возвращает промис, который можно обработать.',
+        color: 'red',
+        isFavorite: false,
+    },
+    {
+        id: 8,
+        title: 'Управление состоянием',
+        content: 'Redux и Context API помогают управлять состоянием приложения в React.',
+        color: 'blue',
+        isFavorite: true,
+    },
+];
 
 const colorMap = {
     yellow: 'var(--color-yellow)',
