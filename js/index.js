@@ -167,6 +167,28 @@ const view = {
             }
         });
 
+        document.addEventListener('keydown', (event) => {
+            if (event.ctrlKey && event.shiftKey && event.key === 'X') {
+                event.preventDefault();
+
+                const list = document.querySelector('.notes-list');
+                const notesItems = list.querySelectorAll('li');
+
+                notesItems.forEach((noteItem) => {
+                    noteItem.classList.add('fade-out');
+                    noteItem.addEventListener('transitionend', () => {
+                        noteItem.remove();
+                    });
+                });
+                clearInputFields();
+
+                setTimeout(() => {
+                    model.notes = [];
+                    model.updateNotesView();
+                }, 500);
+            }
+        });
+
         toggleFavoriteButton.addEventListener('click', () => {
             controller.toggleShowOnlyFavorite();
         })
