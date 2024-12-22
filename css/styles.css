@@ -307,7 +307,6 @@ fieldset {
 /* ============== Messages box ============== */
 
 .messages-box {
-    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.71429;
@@ -358,12 +357,8 @@ fieldset {
 }
 
 @keyframes progressAnimation {
-    0% {
-        width: 100%;
-    }
-    100% {
-        width: 0%;
-    }
+    0% { width: 100%; }
+    100% { width: 0; }
 }
 
 .fade-out {
@@ -371,10 +366,6 @@ fieldset {
 }
 
 @keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
