@@ -234,17 +234,27 @@ fieldset {
 
 /* ============== Notes list ============== */
 
-.notes-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
+/* ===== Custom list ===== */
+.custom-container {
+    columns: 3;
+    column-gap: 24px;
+    margin-bottom: 24px;
 }
+
+/*.notes-list {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    gap: 24px;*/
+/*}*/
 
 .note-wrapper {
     border-radius: 10px;
     width: 368px;
+    margin-bottom: 24px;
+    break-inside: avoid;
     box-shadow: 0 4px 8px 0 rgba(11, 12, 13, 0.08), 0 8px 16px 0 rgba(11, 12, 13, 0.04), 0 1px 2px 0 rgba(11, 12, 13, 0.08);
 }
+/* =======================*/
 
 .note-header {
     display: flex;
