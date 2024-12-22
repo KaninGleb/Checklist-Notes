@@ -127,11 +127,11 @@ const view = {
         const contentLabel = document.querySelector('.description_wrapper label');
         const clearInputFields = () => {
             title.value = '',
-            content.value = '',
-            titleLabel.textContent = `Название заметки`,
-            contentLabel.textContent = `Описание новой заметки`
+                content.value = '',
+                titleLabel.textContent = `Название заметки`,
+                contentLabel.textContent = `Описание новой заметки`
         }
-        
+
         const toggleFavoriteButton = document.querySelector('#toggle-favorites');
 
         title.addEventListener('input', () => {
@@ -175,7 +175,8 @@ const view = {
         ul.addEventListener('click', event => {
             if (event.target.classList.contains('delete-button')) {
                 const noteId = +event.target.closest('li').id;
-                controller.deleteNote(noteId);
+                const noteTitle = event.target.closest('li').querySelector('.note-title').textContent;
+                this.openDeleteConfirmation(noteId, noteTitle);
             }
 
             if (event.target.closest('.favorite-checkbox')) {
@@ -246,6 +247,42 @@ const view = {
                 }, 300);
             }
         }, 3000);
+    },
+
+    openDeleteConfirmation(noteId, noteTitle) {
+        const modal = document.querySelector('#delete-confirmation');
+        const messageElement = document.querySelector('#delete-message');
+        const confirmButton = document.querySelector('#confirm-delete');
+        const cancelButton = document.querySelector('#cancel-delete');
+
+        messageElement.innerHTML = `Вы уверены, что хотите удалить заметку “<b>${noteTitle}</b>”?`;
+
+        modal.style.display = 'flex';
+
+        let countdown = 5;
+        cancelButton.textContent = `Отменить (${countdown})`;
+
+        const interval = setInterval(() => {
+            countdown--;
+            cancelButton.textContent = `Отменить (${countdown})`;
+
+            if (countdown <= 0) {
+                clearInterval(interval);
+                controller.deleteNote(noteId);
+                modal.style.display = 'none';
+            }
+        }, 1000);
+
+        confirmButton.onclick = () => {
+            clearInterval(interval);
+            controller.deleteNote(noteId);
+            modal.style.display = 'none';
+        };
+
+        cancelButton.onclick = () => {
+            clearInterval(interval);
+            modal.style.display = 'none';
+        };
     }
 }
 
