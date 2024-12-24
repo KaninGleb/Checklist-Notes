@@ -296,9 +296,12 @@ const view = {
         const modalHtml = `
             <div class="modal" id="delete-confirmation">
                 <div class="modal-content">
-                    <span class="modal-header">Удаление заметки</span>
+                    <div class="modal-header-wrapper">
+                        <span class="modal-title">Удаление заметки</span>
+                        <img class="modal-cancel-button" src="../images/icons/main/cancel.svg" alt="Cancel">
+                    </div>
                     <hr class="divider">
-                    <div class="delete-confirmation_wrapper">
+                    <div class="delete-confirmation-wrapper">
                         <span class="delete-message-text" id="delete-message"></span>
                         <button class="cancel-delete-button" id="cancel-delete"></button>
                         <button class="confirm-delete-button" id="confirm-delete">Удалить</button>
@@ -313,8 +316,9 @@ const view = {
         const messageElement = document.querySelector('#delete-message');
         const confirmButton = document.querySelector('#confirm-delete');
         const cancelButton = document.querySelector('#cancel-delete');
+        const modalCancelButton = document.querySelector('.modal-cancel-button');
 
-        messageElement.innerHTML = `Вы уверены, что хотите удалить заметку “<b>${noteTitle}</b>”?`;
+        messageElement.innerHTML = `Вы уверены, что хотите удалить заметку <br>“<b>${noteTitle}</b>”?`;
 
         let countdown = 5;
         cancelButton.textContent = `Отменить (${countdown})`;
@@ -340,6 +344,11 @@ const view = {
             clearInterval(interval);
             modal.remove();
         };
+
+        modalCancelButton.onclick = () => {
+            clearInterval(interval);
+            modal.remove();
+        }
     }
 }
 
