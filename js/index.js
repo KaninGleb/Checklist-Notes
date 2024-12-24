@@ -293,6 +293,22 @@ const view = {
     },
 
     openDeleteConfirmation(noteId, noteTitle) {
+        const modalHtml = `
+            <div class="modal" id="delete-confirmation" style="display: flex;">
+                <div class="modal-content">
+                    <span class="modal-header">Удаление заметки</span>
+                    <hr class="divider">
+                    <div class="delete-confirmation_wrapper">
+                        <span class="delete-message-text" id="delete-message"></span>
+                        <button class="cancel-delete-button" id="cancel-delete"></button>
+                        <button class="confirm-delete-button" id="confirm-delete">Удалить</button>
+                    </div>
+                </div>
+            </div>`;
+
+        const container = document.querySelector('#openDeleteConfirmation-container');
+        container.innerHTML += modalHtml;
+
         const modal = document.querySelector('#delete-confirmation');
         const messageElement = document.querySelector('#delete-message');
         const confirmButton = document.querySelector('#confirm-delete');
