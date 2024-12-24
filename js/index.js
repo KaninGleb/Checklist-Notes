@@ -65,8 +65,17 @@ const colorMap = {
 }
 
 const model = {
-    notes: MOCK_NOTES,
+    notes: [],
     isShowOnlyFavorite: false,
+
+    loadNotesFromLocalStorage () {
+        const savedNotes = localStorage.getItem('notes');
+        this.notes = savedNotes ? this.notes = JSON.parse(savedNotes) : [];
+    },
+    
+    saveNotesToLocalStorage() {
+        localStorage.setItem('notes', JSON.stringify(this.notes));
+    },
 
     addNote(title, content, color) {
         const note = {
@@ -77,6 +86,7 @@ const model = {
             isFavorite: false
         }
         this.notes.unshift(note);
+        this.saveNotesToLocalStorage();
         this.updateNotesView();
     },
 
@@ -99,6 +109,7 @@ const model = {
         noteElement.classList.add('fade-out');
         setTimeout(() => {
             this.notes = this.notes.filter(note => note.id !== noteId);
+            this.saveNotesToLocalStorage();
             this.updateNotesView();
         }, 200);
     },
@@ -126,6 +137,7 @@ const model = {
 
 const view = {
     init() {
+        model.loadNotesFromLocalStorage();
         this.renderNotes(model.notes);
         this.renderNotesCounter(model.notes.length);
 
