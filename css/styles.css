@@ -110,7 +110,7 @@ ul {
 .note_title {
     font-weight: 500;
     font-size: 16px;
-    width: 344px;
+    max-width: 344px;
     height: 36px;
     color: #292515;
 }
@@ -492,6 +492,7 @@ fieldset {
 
 @media screen and (max-width: 1200px) {
     .container {
+        max-width: 100%;
         padding: 0 20px;
     }
 
