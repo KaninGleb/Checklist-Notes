@@ -294,7 +294,7 @@ const view = {
 
     openDeleteConfirmation(noteId, noteTitle) {
         const modalHtml = `
-            <div class="modal" id="delete-confirmation" style="display: flex;">
+            <div class="modal" id="delete-confirmation">
                 <div class="modal-content">
                     <span class="modal-header">Удаление заметки</span>
                     <hr class="divider">
@@ -316,8 +316,6 @@ const view = {
 
         messageElement.innerHTML = `Вы уверены, что хотите удалить заметку “<b>${noteTitle}</b>”?`;
 
-        modal.style.display = 'flex';
-
         let countdown = 5;
         cancelButton.textContent = `Отменить (${countdown})`;
 
@@ -328,19 +326,19 @@ const view = {
             if (countdown <= 0) {
                 clearInterval(interval);
                 controller.deleteNote(noteId);
-                modal.style.display = 'none';
+                modal.remove();
             }
         }, 1000);
 
         confirmButton.onclick = () => {
             clearInterval(interval);
             controller.deleteNote(noteId);
-            modal.style.display = 'none';
+            modal.remove();
         };
 
         cancelButton.onclick = () => {
             clearInterval(interval);
-            modal.style.display = 'none';
+            modal.remove();
         };
     }
 }
