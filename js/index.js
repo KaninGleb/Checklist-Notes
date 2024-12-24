@@ -65,12 +65,20 @@ const colorMap = {
 }
 
 const model = {
-    notes: [],
+    notes: MOCK_NOTES,
     isShowOnlyFavorite: false,
 
     loadNotesFromLocalStorage () {
         const savedNotes = localStorage.getItem('notes');
         this.notes = savedNotes ? this.notes = JSON.parse(savedNotes) : [];
+    },
+
+    loadCustomContainerState() {
+        const isCustomContainerVisible = localStorage.getItem('customContainerVisible') === 'true';
+        const customContainer = document.querySelector('#custom-container');
+        if (isCustomContainerVisible) {
+            customContainer.classList.add('custom-container');
+        }
     },
     
     saveNotesToLocalStorage() {
@@ -128,8 +136,10 @@ const model = {
         const customContainer = document.querySelector('#custom-container');
         if (notesToRender.length > 0) {
             customContainer.classList.add('custom-container');
+            localStorage.setItem('customContainerVisible', 'true');
         } else {
             customContainer.classList.remove('custom-container');
+            localStorage.setItem('customContainerVisible', 'false');
         }
     },
 
@@ -138,6 +148,7 @@ const model = {
 const view = {
     init() {
         model.loadNotesFromLocalStorage();
+        model.loadCustomContainerState();
         this.renderNotes(model.notes);
         this.renderNotesCounter(model.notes.length);
 
