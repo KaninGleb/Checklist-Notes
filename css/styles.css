@@ -403,9 +403,12 @@ fieldset {
 .modal-content {
     border-radius: 10px;
     width: 416px;
-    height: 233px;
+    /*height: 233px;*/
     padding: 20px 24px 36px;
     background-color: #fff;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    hyphens: auto;
 }
 
 .modal-header, .delete-message-text {
