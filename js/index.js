@@ -260,15 +260,27 @@ const view = {
     showMessage(message, isSuccess) {
         const messagesBox = document.querySelector('.messages-box');
         const messageId = `message-${new Date().getTime()}`;
-        const messageHtml = `
-            <div class="message-item no_select ${isSuccess ? 'success-message' : 'error-message'}" id="${messageId}">
-                <img src="${isSuccess ? './images/icons/main/Done.svg' : './images/icons/main/warning.svg'}" alt="${isSuccess ? 'Success' : 'Error'}">
-                <span>${message}</span>
-                <div class="progress-bar"></div>
-            </div>`;
+        
+        const messageItem = document.createElement('div');
+        messageItem.className = `message-item no_select ${isSuccess ? 'success-message' : 'error-message'}`;
+        messageItem.id = messageId;
+        
+        const img = document.createElement('img');
+        img.src = isSuccess ? './images/icons/main/Done.svg' : './images/icons/main/warning.svg';
+        img.alt = isSuccess ? 'Success' : 'Error';
+        
+        const span = document.createElement('span');
+        span.textContent = message;
+        
+        const progressBar = document.createElement('div');
+        progressBar.className = 'progress-bar';
 
-        messagesBox.innerHTML += messageHtml;
+        messageItem.appendChild(img);
+        messageItem.appendChild(span);
+        messageItem.appendChild(progressBar);
 
+        messagesBox.appendChild(messageItem);
+        
         setTimeout(() => {
             const messageElement = document.getElementById(messageId);
             if (messageElement) {
