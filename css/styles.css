@@ -278,10 +278,15 @@ fieldset {
     margin: 4px 0 0 12px;
 }
 
-.favorite-checkbox, .delete-button {
+.favorite-button, .delete-button {
     width: 16px;
     height: 16px;
     cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.favorite-button:hover, .delete-button:hover {
+    transform: scale(1.15);
 }
 
 .note-content {
