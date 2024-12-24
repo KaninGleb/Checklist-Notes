@@ -233,8 +233,8 @@ const view = {
                         <div class="note-header" style="background-color: ${colorMap[note.color]}">
                             <p class="note-title">${note.title}</p>
                             <div class="buttons-wrapper">
-                                <img class="favorite-button" src="${note.isFavorite ? './images/icons/main/heart-active.svg' : './images/icons/main/heart-inactive.svg'}" alt="Favorite button">
-                                <img class="delete-button" src="./images/icons/main/trash.svg" alt="Delete button">
+                                <img class="favorite-button" src="${note.isFavorite ? './images/icons/main/heart-active.svg' : './images/icons/main/heart-inactive.svg'}" alt="Favorite button" draggable="false">
+                                <img class="delete-button" src="./images/icons/main/trash.svg" alt="Delete button" draggable="false">
                             </div>
                         </div>
                         <p class="note-content">${note.content}</p>
@@ -298,7 +298,7 @@ const view = {
                 <div class="modal-content">
                     <div class="modal-header-wrapper">
                         <span class="modal-title">Удаление заметки</span>
-                        <img class="modal-cancel-button" src="../images/icons/main/cancel.svg" alt="Cancel">
+                        <img class="modal-cancel-button" src="../images/icons/main/cancel.svg" alt="Cancel" draggable="false">
                     </div>
                     <hr class="divider">
                     <div class="delete-confirmation-wrapper">
