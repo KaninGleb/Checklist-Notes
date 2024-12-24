@@ -115,7 +115,7 @@ const model = {
         view.renderNotesCounter(this.notes.length);
 
         const customContainer = document.querySelector('#custom-container');
-        if (this.notes.length > 0) {
+        if (notesToRender.length > 0) {
             customContainer.classList.add('custom-container');
         } else {
             customContainer.classList.remove('custom-container');
