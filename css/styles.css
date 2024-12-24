@@ -29,9 +29,10 @@ ul {
     margin: 0 auto;
 }
 
-.no_select {
+.no_select, img {
     user-select: none;
 }
+
 
 /* =============== Header =============== */
 

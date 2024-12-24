@@ -134,7 +134,7 @@ const model = {
         view.renderNotesCounter(this.notes.length);
 
         const customContainer = document.querySelector('#custom-container');
-        if (notesToRender.length > 0) {
+        if (this.notes.length > 0 && !model.isShowOnlyFavorite) {
             customContainer.classList.add('custom-container');
             localStorage.setItem('customContainerVisible', 'true');
         } else {
