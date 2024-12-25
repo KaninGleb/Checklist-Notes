@@ -66,11 +66,11 @@ const IMAGE_PATHS = {
 }
 
 const COLOR_MAP = {
-    yellow: 'var(--color-yellow)',
-    red: 'var(--color-red)',
-    green: 'var(--color-green)',
-    blue: 'var(--color-blue)',
-    purple: 'var(--color-purple)',
+    yellow: 'var(--note-color-yellow)',
+    red: 'var(--note-color-red)',
+    green: 'var(--note-color-green)',
+    blue: 'var(--note-color-blue)',
+    purple: 'var(--note-color-purple)',
 }
 
 const MESSAGES = {
