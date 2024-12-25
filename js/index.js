@@ -56,6 +56,11 @@ const MOCK_NOTES = [
     },
 ];
 
+const MAX_TITLE_LENGTH = 50;
+const DELETE_CONFIRMATION_COUNTDOWN = 5;
+const ANIMATION_FADE_OUT_DURATION = 200;
+const MESSAGE_DISPLAY_DURATION = 3000;
+
 const IMAGE_PATHS = {
     heartActive: './assets/images/icons/main/note-favourite-heart-active.svg',
     heartInactive: './assets/images/icons/main/favourite-heart-inactive.svg',
@@ -135,7 +140,7 @@ const model = {
             this.notes = this.notes.filter(note => note.id !== noteId);
             this.saveNotesToLocalStorage();
             this.updateNotesView();
-        }, 200);
+        }, ANIMATION_FADE_OUT_DURATION);
     },
 
     updateNotesView() {
@@ -330,7 +335,7 @@ const view = {
                     messageElement.remove();
                 }, 300);
             }
-        }, 3000);
+        }, MESSAGE_DISPLAY_DURATION);
     },
 
     openDeleteConfirmation(noteId, noteTitle) {
@@ -361,7 +366,7 @@ const view = {
 
         messageElement.innerHTML = `Вы уверены, что хотите удалить заметку <br>“<b>${noteTitle}</b>”?`;
 
-        let countdown = 5;
+        let countdown = DELETE_CONFIRMATION_COUNTDOWN;
         cancelButton.textContent = `Отменить (${countdown})`;
 
         const interval = setInterval(() => {
@@ -399,7 +404,7 @@ const controller = {
             view.showMessage(MESSAGES.emptyFields, false);
             return false;
         }
-        if (title.length > 50) {
+        if (title.length > MAX_TITLE_LENGTH) {
             view.showMessage(MESSAGES.titleLengthExceeded, false);
             return false;
         }
