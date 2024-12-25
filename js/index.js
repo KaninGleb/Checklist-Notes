@@ -243,12 +243,14 @@ const view = {
 
     renderNotes(notes, showNoFavoritesMessage, hiddenNotesCount) {
         const list = document.querySelector('.notes-list');
+        const customContainer = document.querySelector('#custom-container');
         let notesHTML = '';
 
         if (showNoFavoritesMessage) {
             notesHTML = `<li class="no-favorite-notes-screen-massage">У вас нет избранных заметок!</li>`;
         } else if (notes.length === 0) {
             notesHTML = `<li class="no-notes-screen-massage">У вас нет еще ни одной заметки<br>Заполните поля выше и создайте свою первую заметку!</li>`;
+            customContainer.classList.remove('custom-container');
         } else {
         notes.forEach(note => {
             notesHTML +=
