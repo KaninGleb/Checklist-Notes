@@ -107,6 +107,7 @@ const model = {
         this.notes.forEach(note => {
             if (note.id === noteId) {
                 note.isFavorite = !note.isFavorite;
+                this.saveNotesToLocalStorage();
                 view.renderNotes(this.notes);
             }
         })
