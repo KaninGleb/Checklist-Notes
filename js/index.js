@@ -65,7 +65,7 @@ const colorMap = {
 }
 
 const model = {
-    notes: MOCK_NOTES,
+    notes: [],
     isShowOnlyFavorite: false,
 
     loadNotesFromLocalStorage () {
@@ -134,14 +134,15 @@ const model = {
         view.renderNotesCounter(this.notes.length);
 
         const customContainer = document.querySelector('#custom-container');
-        if (this.notes.length > 0 && !model.isShowOnlyFavorite) {
+        const hasNotes = notesToRender.length > 0;
+        const shouldShowCustomContainer = this.isShowOnlyFavorite ? hasNotes : this.notes.length > 0;
+
+        if (shouldShowCustomContainer) {
             customContainer.classList.add('custom-container');
-            localStorage.setItem('customContainerVisible', 'true');
         } else {
             customContainer.classList.remove('custom-container');
-            localStorage.setItem('customContainerVisible', 'false');
         }
-    },
+    }
 
 }
 
@@ -158,10 +159,10 @@ const view = {
         const content = document.querySelector('.note_description');
         const contentLabel = document.querySelector('.description_wrapper label');
         const clearInputFields = () => {
-            title.value = '',
-                content.value = '',
-                titleLabel.textContent = `Название заметки`,
-                contentLabel.textContent = `Описание новой заметки`
+            title.value = ''
+            content.value = ''
+            titleLabel.textContent = `Название заметки`
+            contentLabel.textContent = `Описание новой заметки`
         }
 
         const toggleFavoriteButton = document.querySelector('#toggle-favorites');
@@ -247,7 +248,7 @@ const view = {
         if (showNoFavoritesMessage) {
             notesHTML = `<li class="no-favorite-notes-screen-massage">У вас нет избранных заметок!</li>`;
         } else if (notes.length === 0) {
-            notesHTML = `<li class="no-notes-screen-massage">У вас нет еще ни одной заметки<br>Заполните поля выше и создайте свою первую заметку!</li>`
+            notesHTML = `<li class="no-notes-screen-massage">У вас нет еще ни одной заметки<br>Заполните поля выше и создайте свою первую заметку!</li>`;
         } else {
         notes.forEach(note => {
             notesHTML +=
