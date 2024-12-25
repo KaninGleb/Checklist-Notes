@@ -321,7 +321,7 @@ const view = {
                 <div class="modal-content">
                     <div class="modal-header-wrapper">
                         <span class="modal-title">Удаление заметки</span>
-                        <img class="modal-cancel-button" src="../images/icons/main/cancel.svg" alt="Cancel" draggable="false">
+                        <img class="modal-cancel-button" src="/images/icons/main/cancel.svg" alt="Cancel" draggable="false">
                     </div>
                     <hr class="divider">
                     <div class="delete-confirmation-wrapper">
