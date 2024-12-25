@@ -37,6 +37,7 @@
     --main-border-color-light-gray: #e8e8e8;
     --buttons-primary-color-blue: #457cdc;
     --buttons-hover-color-blue: #3b6db4;
+    --radio-checked-shadow-blue: #007BFF;
     --color-modal-bg: rgba(0, 0, 0, 0.4);
     --modal-font-color: #1f393d;
     --modal-buttons-hover-color: #f0f0f0 ;
@@ -198,7 +199,7 @@ fieldset {
 }
 
 .radio:checked {
-    box-shadow: 0 0 0 3px var(--color-white), 0 0 0 4.5px #007BFF;
+    box-shadow: 0 0 0 3px var(--color-white), 0 0 0 5px var(--radio-checked-shadow-blue);
 }
 
 .radio[value="yellow"] { background-color: var(--note-color-yellow); }
@@ -602,7 +603,7 @@ fieldset {
     }
 
     .radio:checked {
-        box-shadow: 0 0 0 2.5px var(--color-white), 0 0 0 4px #007BFF;
+        box-shadow: 0 0 0 3px var(--color-white), 0 0 0 4px var(--radio-checked-shadow-blue);
     }
 
     .add_note_button {
@@ -684,7 +685,7 @@ fieldset {
     }
 
     .radio:checked {
-        box-shadow: 0 0 0 3px var(--color-white), 0 0 0 4.5px #007BFF;
+        box-shadow: 0 0 0 3px var(--color-white), 0 0 0 5px var(--radio-checked-shadow-blue);
     }
 
     .filter-box {
