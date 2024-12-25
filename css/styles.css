@@ -355,7 +355,7 @@ fieldset {
     padding: 12px 24px;
     border-radius: 10px;
     width: fit-content;
-    max-width: 427px;
+    max-width: 435px;
     max-height: 48px;
     margin-top: 5px;
     box-shadow: 0 8px 12px 0 rgba(11, 12, 13, 0.08), 0 16px 24px 0 rgba(11, 12, 13, 0.04), 0 1px 2px 0 rgba(11, 12, 13, 0.08);
@@ -633,7 +633,7 @@ fieldset {
 
     .message-item {
         padding: 12px 18px;
-        max-width: 230px;
+        max-width: 235px;
         max-height: 50px;
     }
 

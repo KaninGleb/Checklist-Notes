@@ -57,6 +57,7 @@ const MOCK_NOTES = [
 ];
 
 const MAX_TITLE_LENGTH = 50;
+const MAX_CONTENT_LENGTH = 500;
 const DELETE_CONFIRMATION_COUNTDOWN = 5;
 const ANIMATION_FADE_OUT_DURATION = 200;
 const MESSAGE_DISPLAY_DURATION = 3000;
@@ -81,6 +82,7 @@ const COLOR_MAP = {
 const MESSAGES = {
     emptyFields: 'Оба поля должны иметь данные',
     titleLengthExceeded: 'Максимальная длина заголовка - 50 символов',
+    contentLengthExceeded: 'Максимальная длина описания - 500 символов',
     noteAdded: 'Заметка добавлена!',
 };
 
@@ -190,13 +192,14 @@ const view = {
 
         title.addEventListener('input', () => {
             const currentTitleLength = title.value.length;
-            titleLabel.textContent = `Название заметки (${currentTitleLength}/50)`;
-            titleLabel.style.color = currentTitleLength > 50 ? 'red' : '';
+            titleLabel.textContent = `Название заметки (${currentTitleLength} / ${MAX_TITLE_LENGTH})`;
+            titleLabel.style.color = currentTitleLength > MAX_TITLE_LENGTH ? 'red' : '';
         })
 
         content.addEventListener('input', () => {
             const currentContentLength = content.value.length;
-            contentLabel.textContent = `Описание новой заметки (${currentContentLength})`
+            contentLabel.textContent = `Описание новой заметки (${currentContentLength} / ${MAX_CONTENT_LENGTH})`
+            contentLabel.style.color = currentContentLength > MAX_CONTENT_LENGTH ? 'red' : '';
         })
 
         form.addEventListener('submit', (event) => {
@@ -406,6 +409,10 @@ const controller = {
         }
         if (title.length > MAX_TITLE_LENGTH) {
             view.showMessage(MESSAGES.titleLengthExceeded, false);
+            return false;
+        }
+        if (content.length > MAX_CONTENT_LENGTH) {
+            view.showMessage(MESSAGES.contentLengthExceeded, false);
             return false;
         }
         model.addNote(title, content, color);
