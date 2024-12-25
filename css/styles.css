@@ -256,11 +256,11 @@ fieldset {
     width: 16px;
     height: 16px;
     background-size: cover;
-    background-image: url('../images/icons/main/checkbox-inactive.svg');
+    background-image: url('../assets/images/icons/main/checkbox-inactive.svg');
 }
 
 .checkbox:checked + .custom-checkbox {
-    background-image: url('../images/icons/main/checkbox-active.svg');
+    background-image: url('../assets/images/icons/main/checkbox-active.svg');
 }
 
 /* ============== Notes list ============== */

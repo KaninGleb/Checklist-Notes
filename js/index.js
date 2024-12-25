@@ -56,13 +56,28 @@ const MOCK_NOTES = [
     },
 ];
 
-const colorMap = {
+const IMAGE_PATHS = {
+    heartActive: './assets/images/icons/main/note-favourite-heart-active.svg',
+    heartInactive: './assets/images/icons/main/favourite-heart-inactive.svg',
+    deleteButton: './assets/images/icons/main/note-delete-button.svg',
+    successIcon: './assets/images/icons/main/note-message-success.svg',
+    warningIcon: './assets/images/icons/main/message-warning.svg',
+    cancelButton: './assets/images/icons/main/modal-cancel-button.svg',
+}
+
+const COLOR_MAP = {
     yellow: 'var(--color-yellow)',
     red: 'var(--color-red)',
     green: 'var(--color-green)',
     blue: 'var(--color-blue)',
     purple: 'var(--color-purple)',
 }
+
+const MESSAGES = {
+    emptyFields: 'Оба поля должны иметь данные',
+    titleLengthExceeded: 'Максимальная длина заголовка - 50 символов',
+    noteAdded: 'Заметка добавлена!',
+};
 
 const model = {
     notes: [],
@@ -183,7 +198,7 @@ const view = {
             event.preventDefault();
             const color = document.querySelector('input[name="color"]:checked');
             const result = controller.addNote(title.value, content.value, color.value);
-            
+
             if (result) {
                 clearInputFields();
             }
@@ -194,7 +209,7 @@ const view = {
                 event.preventDefault();
                 const color = document.querySelector('input[name="color"]:checked');
                 const result = controller.addNote(title.value, content.value, color.value);
-                
+
                 if (result) {
                     clearInputFields();
                 }
@@ -257,11 +272,11 @@ const view = {
             notesHTML +=
                 `<li id="${note.id}" class="${note.isFavorite ? 'favorite-note' : ''}">
                     <div class="note-wrapper">
-                        <div class="note-header" style="background-color: ${colorMap[note.color]}">
+                        <div class="note-header" style="background-color: ${COLOR_MAP[note.color]}">
                             <p class="note-title">${note.title}</p>
                             <div class="buttons-wrapper">
-                                <img class="favorite-button" src="${note.isFavorite ? './images/icons/main/heart-active.svg' : './images/icons/main/heart-inactive.svg'}" alt="Favorite button" draggable="false">
-                                <img class="delete-button" src="./images/icons/main/trash.svg" alt="Delete button" draggable="false">
+                                <img class="favorite-button" src="${note.isFavorite ? IMAGE_PATHS.heartActive : IMAGE_PATHS.heartInactive}" alt="Favorite button" draggable="false">
+                                <img class="delete-button" src="${IMAGE_PATHS.deleteButton}" alt="Delete button" draggable="false">
                             </div>
                         </div>
                         <p class="note-content">${note.content}</p>
@@ -280,8 +295,7 @@ const view = {
     },
 
     renderNotesCounter(count) {
-        const counter = document.querySelector('.note_counter b');
-        counter.textContent = count;
+        document.querySelector('.note_counter b').textContent = count;
     },
 
     showMessage(message, isSuccess) {
@@ -293,7 +307,7 @@ const view = {
         messageItem.id = messageId;
         
         const img = document.createElement('img');
-        img.src = isSuccess ? './images/icons/main/Done.svg' : './images/icons/main/warning.svg';
+        img.src = isSuccess ? IMAGE_PATHS.successIcon : IMAGE_PATHS.warningIcon;
         img.alt = isSuccess ? 'Success' : 'Error';
         
         const span = document.createElement('span');
@@ -325,7 +339,7 @@ const view = {
                 <div class="modal-content">
                     <div class="modal-header-wrapper">
                         <span class="modal-title">Удаление заметки</span>
-                        <img class="modal-cancel-button" src="/images/icons/main/cancel.svg" alt="Cancel" draggable="false">
+                        <img class="modal-cancel-button" src="${IMAGE_PATHS.cancelButton}" alt="Cancel" draggable="false">
                     </div>
                     <hr class="divider">
                     <div class="delete-confirmation-wrapper">
@@ -382,15 +396,15 @@ const view = {
 const controller = {
     addNote(title, content, color) {
         if (!title.trim() || !content.trim()) {
-            view.showMessage('Оба поля должны иметь данные', false);
+            view.showMessage(MESSAGES.emptyFields, false);
             return false;
         }
         if (title.length > 50) {
-            view.showMessage('Максимальная длина заголовка - 50 символов', false);
+            view.showMessage(MESSAGES.titleLengthExceeded, false);
             return false;
         }
         model.addNote(title, content, color);
-        view.showMessage('Заметка добавлена!', true);
+        view.showMessage(MESSAGES.noteAdded, true);
         return true;
     },
 
