@@ -604,6 +604,10 @@ fieldset {
         font-size: 12px;
     }
 
+    .no-notes-screen-massage {
+        margin: 90px auto 0;
+    }
+
     .notes_create_wrapper, .messages-box {
         font-size: 12px;
         right: 16px;
@@ -667,6 +671,11 @@ fieldset {
 }
 
 @media screen and (max-width: 375px) {
+    .container {
+        min-width: 200px;
+        padding: 0 10px;
+    }
+
     .note_title, .note_description {
         font-size: 12px;
     }
