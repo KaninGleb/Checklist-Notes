@@ -313,6 +313,7 @@ fieldset {
     width: 16px;
     height: 16px;
     cursor: pointer;
+    will-change: transform;
     transition: 0.3s ease;
 }
 
@@ -523,15 +524,19 @@ fieldset {
         padding: 0 20px;
     }
 
-    .note_counter {
+    .note_counter,
+    .no-notes-screen-massage,
+    .note-header {
         font-size: 14px;
     }
 
-    .note_title, .note_description {
+    .note_title,
+    .note_description {
         font-size: 14px;
     }
 
-    .note_description::placeholder, .note_title::placeholder {
+    .note_description::placeholder,
+    .note_title::placeholder {
         font-size: 12px;
         line-height: 2;
     }
@@ -543,14 +548,6 @@ fieldset {
     .add_note_button {
         width: 100%;
         padding: 10px;
-        font-size: 14px;
-    }
-
-    .no-notes-screen-massage {
-        font-size: 14px;
-    }
-
-    .note-header {
         font-size: 14px;
     }
 
@@ -588,11 +585,13 @@ fieldset {
         font-size: 12px;
     }
 
-    .note_title, .note_description {
+    .note_title,
+    .note_description {
         font-size: 13px;
     }
 
-    .note_description::placeholder, .note_title::placeholder {
+    .note_description::placeholder,
+    .note_title::placeholder {
         font-size: 10px;
     }
 
@@ -611,7 +610,9 @@ fieldset {
         font-size: 14px;
     }
 
-    .filter-box {
+    .filter-box,
+    .no-notes-screen-massage,
+    .no-favorite-notes-screen-massage {
         font-size: 12px;
     }
 
@@ -619,23 +620,12 @@ fieldset {
         margin-bottom: 16px;
     }
 
-    .note-header {
-        font-size: 14px;
-    }
-
-    .note-content {
-        font-size: 12px;
-    }
-
-    .no-notes-screen-massage, .no-favorite-notes-screen-massage {
-        font-size: 12px;
-    }
-
     .no-notes-screen-massage {
         margin: 90px auto 0;
     }
 
-    .notes_create_wrapper, .messages-box {
+    .notes_create_wrapper,
+    .messages-box {
         font-size: 12px;
         right: 16px;
         bottom: 20px;
@@ -651,12 +641,19 @@ fieldset {
         max-width: 380px;
     }
 
-    .modal-title, .delete-message-text, .cancel-delete-button, .confirm-delete-button {
+    .modal-title,
+    .delete-message-text,
+    .cancel-delete-button,
+    .confirm-delete-button {
         font-size: 13px;
     }
 }
 
 @media screen and (max-width: 480px) {
+    .container {
+        padding: 0 14px;
+    }
+
     .custom-container {
         columns: 1;
         margin-bottom: 5px;
@@ -668,6 +665,7 @@ fieldset {
 
     .note-wrapper {
         max-width: 100%;
+        margin-bottom: 10px;
     }
 
     .description_wrapper {
@@ -675,10 +673,7 @@ fieldset {
         gap: 0;
     }
 
-    .fieldset {
-        width: 100%;
-    }
-
+    .fieldset,
     .radio-list {
         width: 100%;
     }
@@ -703,15 +698,13 @@ fieldset {
         padding: 0 10px;
     }
 
-    .note_title, .note_description {
+    .note_title,
+    .note_description,
+    .note-header {
         font-size: 12px;
     }
 
     .add_note_button {
-        font-size: 12px;
-    }
-
-    .note-header {
         font-size: 12px;
     }
 
@@ -724,20 +717,15 @@ fieldset {
         margin: 18px 0 10px;
     }
 
-    .note-title {
-        font-size: 14px;
-    }
-
-    .note-description {
-        font-size: 14px;
-    }
-
     .modal-content {
         width: 100vw;
         padding: 12px 14px 20px;
     }
 
-    .modal-title, .delete-message-text, .cancel-delete-button, .confirm-delete-button {
+    .modal-title,
+    .delete-message-text,
+    .cancel-delete-button,
+    .confirm-delete-button {
         font-size: 12px;
         border-radius: 5px;
         padding: 3px 10px;
