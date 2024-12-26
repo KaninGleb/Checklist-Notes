@@ -527,10 +527,7 @@ fieldset {
 
     .note_counter,
     .no-notes-screen-massage,
-    .note-header {
-        font-size: 14px;
-    }
-
+    .note-header,
     .note_title,
     .note_description {
         font-size: 14px;
@@ -694,12 +691,13 @@ fieldset {
         padding: 0 10px;
     }
 
-    .note_title,
-    .note_description,
-    .note-header {
-        font-size: 12px;
+    .notes_create_wrapper {
+        margin-top: 12px;
     }
 
+    .note_title,
+    .note_description,
+    .note-header,
     .add_note_button {
         font-size: 12px;
     }
