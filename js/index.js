@@ -1,61 +1,3 @@
-// const MOCK_NOTES = [
-//     {
-//         id: 1,
-//         title: 'Работа с формами',
-//         content: 'К определённым полям формы можно обратиться через form.elements по значению, указанному в атрибуте name.',
-//         color: 'green',
-//         isFavorite: false,
-//     },
-//     {
-//         id: 2,
-//         title: 'Обработка событий',
-//         content: 'События в JavaScript позволяют реагировать на действия пользователя, такие как клики или нажатия клавиш.',
-//         color: 'red',
-//         isFavorite: true,
-//     },
-//     {
-//         id: 3,
-//         title: 'Асинхронные операции',
-//         content: 'Используйте promise для работы с асинхронными операциями. Это позволит избежать callback hell и сделает код более читаемым. Promise можно легко комбинировать с async/await для упрощения синтаксиса.',
-//         color: 'blue',
-//         isFavorite: false,
-//     },
-//     {
-//         id: 4,
-//         title: 'CSS Flexbox',
-//         content: 'Flexbox упрощает создание адаптивных макетов. Используйте свойства justify-content и align-items для выравнивания элементов в контейнере. Flexbox позволяет легко управлять пространством между элементами и изменять их порядок.',
-//         color: 'yellow',
-//     },
-//     {
-//         id: 5,
-//         title: 'JavaScript ES6',
-//         content: 'Используйте стрелочные функции и let/const для работы с переменными и функциями.',
-//         color: 'purple',
-//         isFavorite: false,
-//     },
-//     {
-//         id: 6,
-//         title: 'React Hooks',
-//         content: 'Hooks, такие как useState и useEffect, позволяют управлять состоянием и жизненным циклом компонентов.',
-//         color: 'green',
-//         isFavorite: true,
-//     },
-//     {
-//         id: 7,
-//         title: 'API Fetch',
-//         content: 'Используйте fetch для получения данных с сервера. Он возвращает promise, который можно обработать.',
-//         color: 'red',
-//         isFavorite: false,
-//     },
-//     {
-//         id: 8,
-//         title: 'Управление состоянием',
-//         content: 'Redux и Context API помогают управлять состоянием приложения в React.',
-//         color: 'blue',
-//         isFavorite: true,
-//     },
-// ];
-
 const MAX_TITLE_LENGTH = 50;
 const MAX_CONTENT_LENGTH = 500;
 const DELETE_CONFIRMATION_COUNTDOWN = 5;
@@ -77,6 +19,7 @@ const COLOR_MAP = {
     green: 'var(--note-color-green)',
     blue: 'var(--note-color-blue)',
     purple: 'var(--note-color-purple)',
+    errorRed: 'var(--color-red)',
 }
 
 const MESSAGES = {
@@ -165,8 +108,7 @@ const model = {
         } else {
             customContainer.classList.remove('custom-container');
         }
-    }
-
+    },
 }
 
 const view = {
@@ -184,7 +126,7 @@ const view = {
         const clearInputFields = () => {
             title.value = ''
             content.value = ''
-            titleLabel.textContent = `Note Title`
+            titleLabel.textContent = `Title of the note`
             contentLabel.textContent = `Description of the new note`
         }
 
@@ -192,14 +134,14 @@ const view = {
 
         title.addEventListener('input', () => {
             const currentTitleLength = title.value.length;
-            titleLabel.textContent = `Note Title (${currentTitleLength} / ${MAX_TITLE_LENGTH})`;
-            titleLabel.style.color = currentTitleLength > MAX_TITLE_LENGTH ? 'red' : '';
+            titleLabel.textContent = `Title of the note (${currentTitleLength} / ${MAX_TITLE_LENGTH})`;
+            titleLabel.style.color = currentTitleLength > MAX_TITLE_LENGTH ? COLOR_MAP.errorRed : '';
         })
 
         content.addEventListener('input', () => {
             const currentContentLength = content.value.length;
             contentLabel.textContent = `Description of the new note (${currentContentLength} / ${MAX_CONTENT_LENGTH})`
-            contentLabel.style.color = currentContentLength > MAX_CONTENT_LENGTH ? 'red' : '';
+            contentLabel.style.color = currentContentLength > MAX_CONTENT_LENGTH ? COLOR_MAP.errorRed : '';
         })
 
         form.addEventListener('submit', (event) => {
@@ -296,7 +238,7 @@ const view = {
 
         const hiddenNotesMessage = document.querySelector('.hidden-notes-message');
         if (hiddenNotesCount > 0) {
-            hiddenNotesMessage.textContent = `(Скрыто: ${hiddenNotesCount})`
+            hiddenNotesMessage.textContent = `(Hidden: ${hiddenNotesCount})`
         } else {
             hiddenNotesMessage.textContent = ''
         }
@@ -398,7 +340,7 @@ const view = {
             clearInterval(interval);
             modal.remove();
         }
-    }
+    },
 }
 
 const controller = {
@@ -430,7 +372,7 @@ const controller = {
 
     toggleFavorite(noteId) {
         model.toggleFavorite(noteId);
-    }
+    },
 }
 
 function init() {
