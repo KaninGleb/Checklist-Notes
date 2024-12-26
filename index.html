@@ -27,7 +27,7 @@
                     <img class="header_img" src="./assets/images/icons/header/notes-mini.svg" alt="Notes mini">
                 </li>
                 <li class="menu-item">
-                    <span class="note_counter">Всего заметок: <b>0</b></span>
+                    <span class="note_counter">Total notes: <b>0</b></span>
                 </li>
             </ul>
         </div>
@@ -39,18 +39,18 @@
         <div class="notes_create_wrapper">
             <form class="note-form" name="notes">
                 <div class="name_wrapper">
-                    <label class="no_select" for="noteTitle">Название заметки</label>
-                    <input type="text" class="note_title" id="noteTitle" placeholder="Напишите название новой заметки...">
+                    <label class="no_select" for="noteTitle">Note Title</label>
+                    <input type="text" class="note_title" id="noteTitle" placeholder="Enter the title of the new note...">
                 </div>
 
                 <div class="description_wrapper">
                     <div class="description_form">
-                        <label class="no_select" for="noteDescription">Описание новой заметки</label>
-                        <textarea class="note_description" id="noteDescription" placeholder="Напишите название новой заметки..."></textarea>
+                        <label class="no_select" for="noteDescription">Description of the new note</label>
+                        <textarea class="note_description" id="noteDescription" placeholder="Enter the description of the new note..."></textarea>
                     </div>
 
                     <fieldset class="fieldset">
-                        <legend class="label no_select">Выберите цвет заметки</legend>
+                        <legend class="label no_select">Choose note color</legend>
                         <ul class="radio-list">
                             <li>
                                 <input checked class="radio" type="radio" name="color" value="yellow" aria-label="yellow"/>
@@ -70,7 +70,7 @@
                         </ul>
                         <button class="add_note_button" type="submit">
                             <img src="./assets/images/icons/main/add-button-plus-white.svg" alt="Add Note">
-                            Добавить заметку
+                            Add Note
                         </button>
                     </fieldset>
                 </div>
@@ -84,20 +84,20 @@
                 <span class="hidden-notes-message"></span>
                 <input class="checkbox" id="toggle-favorites" type="checkbox" name="favorite" />
                 <span class="custom-checkbox"></span>
-                <span class="no_select">Показать только избранные заметки</span>
+                <span class="no_select">Show only favorite notes</span>
             </label>
         </div>
     </div>
 
     <div class="container" id="custom-container">
         <ul class="notes-list">
-            <!-- Сюда будут рендерится заметки из JavaScript -->
+            <!-- Notes will be rendered here from JavaScript -->
         </ul>
     </div>
 
     <div class="container">
         <div class="messages-box">
-            <!-- Сюда будут рендерится информационные сообщения из JavaScript -->
+            <!-- Informational messages will be rendered here from JavaScript -->
         </div>
     </div>
 

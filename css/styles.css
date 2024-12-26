@@ -212,7 +212,7 @@ fieldset {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: 10px;
     font-family: inherit;
     font-weight: 500;
     font-size: 16px;
@@ -220,7 +220,7 @@ fieldset {
     color: var(--color-white);
     border: none;
     border-radius: 10px;
-    padding: 6px 24px;
+    padding: 6px 38px 6px 20px;
     width: 232px;
     height: 36px;
     background-color: var(--buttons-primary-color-blue);
@@ -604,11 +604,6 @@ fieldset {
 
     .radio:checked {
         box-shadow: 0 0 0 3px var(--color-white), 0 0 0 4px var(--radio-checked-shadow-blue);
-    }
-
-    .add_note_button {
-        padding: 12px;
-        font-size: 14px;
     }
 
     .filter-box,

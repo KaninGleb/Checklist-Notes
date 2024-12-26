@@ -80,10 +80,10 @@ const COLOR_MAP = {
 }
 
 const MESSAGES = {
-    emptyFields: 'Оба поля должны иметь данные',
-    titleLengthExceeded: 'Максимальная длина заголовка - 50 символов',
-    contentLengthExceeded: 'Максимальная длина описания - 500 символов',
-    noteAdded: 'Заметка добавлена!',
+    emptyFields: 'Both fields must have data',
+    titleLengthExceeded: 'Maximum title length is 50 characters',
+    contentLengthExceeded: 'Maximum description length is 500 characters',
+    noteAdded: 'Note successfully added!',
 };
 
 const model = {
@@ -184,21 +184,21 @@ const view = {
         const clearInputFields = () => {
             title.value = ''
             content.value = ''
-            titleLabel.textContent = `Название заметки`
-            contentLabel.textContent = `Описание новой заметки`
+            titleLabel.textContent = `Note Title`
+            contentLabel.textContent = `Description of the new note`
         }
 
         const toggleFavoriteButton = document.querySelector('#toggle-favorites');
 
         title.addEventListener('input', () => {
             const currentTitleLength = title.value.length;
-            titleLabel.textContent = `Название заметки (${currentTitleLength} / ${MAX_TITLE_LENGTH})`;
+            titleLabel.textContent = `Note Title (${currentTitleLength} / ${MAX_TITLE_LENGTH})`;
             titleLabel.style.color = currentTitleLength > MAX_TITLE_LENGTH ? 'red' : '';
         })
 
         content.addEventListener('input', () => {
             const currentContentLength = content.value.length;
-            contentLabel.textContent = `Описание новой заметки (${currentContentLength} / ${MAX_CONTENT_LENGTH})`
+            contentLabel.textContent = `Description of the new note (${currentContentLength} / ${MAX_CONTENT_LENGTH})`
             contentLabel.style.color = currentContentLength > MAX_CONTENT_LENGTH ? 'red' : '';
         })
 
@@ -271,26 +271,26 @@ const view = {
         let notesHTML = '';
 
         if (showNoFavoritesMessage) {
-            notesHTML = `<li class="no-favorite-notes-screen-massage">У вас нет избранных заметок!</li>`;
+            notesHTML = `<li class="no-favorite-notes-screen-massage">You don't have any favorite notes!</li>`;
         } else if (notes.length === 0) {
-            notesHTML = `<li class="no-notes-screen-massage">У вас нет еще ни одной заметки<br>Заполните поля выше и создайте свою первую заметку!</li>`;
+            notesHTML = `<li class="no-notes-screen-massage">You don't have any notes yet<br>Fill in the fields above and create your first note!</li>`;
             customContainer.classList.remove('custom-container');
         } else {
-        notes.forEach(note => {
-            notesHTML +=
-                `<li id="${note.id}" class="${note.isFavorite ? 'favorite-note' : ''}">
-                    <div class="note-wrapper">
-                        <div class="note-header" style="background-color: ${COLOR_MAP[note.color]}">
-                            <p class="note-title">${note.title}</p>
-                            <div class="buttons-wrapper">
-                                <img class="favorite-button" src="${note.isFavorite ? IMAGE_PATHS.heartActive : IMAGE_PATHS.heartInactive}" alt="Favorite button" draggable="false">
-                                <img class="delete-button" src="${IMAGE_PATHS.deleteButton}" alt="Delete button" draggable="false">
+            notes.forEach(note => {
+                notesHTML +=
+                    `<li id="${note.id}" class="${note.isFavorite ? 'favorite-note' : ''}">
+                        <div class="note-wrapper">
+                            <div class="note-header" style="background-color: ${COLOR_MAP[note.color]}">
+                                <p class="note-title">${note.title}</p>
+                                <div class="buttons-wrapper">
+                                    <img class="favorite-button" src="${note.isFavorite ? IMAGE_PATHS.heartActive : IMAGE_PATHS.heartInactive}" alt="Favorite button" draggable="false">
+                                    <img class="delete-button" src="${IMAGE_PATHS.deleteButton}" alt="Delete button" draggable="false">
+                                </div>
                             </div>
+                            <p class="note-content">${note.content}</p>
                         </div>
-                        <p class="note-content">${note.content}</p>
-                    </div>
-                </li>`
-        })
+                    </li>`
+            })
         }
         list.innerHTML = notesHTML;
 
@@ -346,14 +346,14 @@ const view = {
             <div class="modal" id="delete-confirmation">
                 <div class="modal-content">
                     <div class="modal-header-wrapper">
-                        <span class="modal-title">Удаление заметки</span>
+                        <span class="modal-title">Deleting a note</span>
                         <img class="modal-cancel-button" src="${IMAGE_PATHS.cancelButton}" alt="Cancel" draggable="false">
                     </div>
                     <hr class="divider">
                     <div class="delete-confirmation-wrapper">
                         <span class="delete-message-text" id="delete-message"></span>
                         <button class="cancel-delete-button" id="cancel-delete"></button>
-                        <button class="confirm-delete-button" id="confirm-delete">Удалить</button>
+                        <button class="confirm-delete-button" id="confirm-delete">Delete</button>
                     </div>
                 </div>
             </div>`;
@@ -367,14 +367,14 @@ const view = {
         const cancelButton = document.querySelector('#cancel-delete');
         const modalCancelButton = document.querySelector('.modal-cancel-button');
 
-        messageElement.innerHTML = `Вы уверены, что хотите удалить заметку <br>“<b>${noteTitle}</b>”?`;
+        messageElement.innerHTML = `Are you sure you want to delete the note<br>“<b>${noteTitle}</b>”?`;
 
         let countdown = DELETE_CONFIRMATION_COUNTDOWN;
-        cancelButton.textContent = `Отменить (${countdown})`;
+        cancelButton.textContent = `Cancel (${countdown})`;
 
         const interval = setInterval(() => {
             countdown--;
-            cancelButton.textContent = `Отменить (${countdown})`;
+            cancelButton.textContent = `Cancel (${countdown})`;
 
             if (countdown <= 0) {
                 clearInterval(interval);
